@@ -16,7 +16,9 @@
         </div>
         <div class="ui right demo sidebar vertical inverted menu uncover visible" style="">
               <a class="header item"> <h3>Menu</h3></a>
-              <a class="item"><i class="fa fa-book fa-2x" aria-hidden="true"></i> <p>Libros</p></a>
+              <a class="item" id="libros"><i class="fa fa-book fa-2x" aria-hidden="true"></i> <p>Libros</p></a>
+              <a class="item libros"><i class="fa fa-plus fa-2x" aria-hidden="true"></i> <p>Registrar Libros</p></a>
+              <a class="item libros"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> <p>Modificar Libro</p></a>
               <a class="item"><i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i><p>Prestamos</p></a>
               <a class="item"><i class="fa fa-search fa-2x" aria-hidden="true"></i><p>Consultas</p></a>
               <a class="item"><p><i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i>Estadisticas</p></a>
@@ -24,6 +26,22 @@
         </div>
     </header>
 <script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/semantic.min.js"></script>    
+<script src="js/semantic.min.js"></script>  
+<script>
+    $(document).ready(function (){
+       $('.libros').hide();
+         var i = 0;
+       $('#libros').click(function(){
+           if(i==0){
+               $('.libros').slideDown("slow");
+               i=1;
+           }else{
+               $('.libros').hide("slow");
+               i = 0;
+           }
+          
+       });
+    });
+</script>  
 </body>
 </html>
