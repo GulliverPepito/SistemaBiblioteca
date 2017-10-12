@@ -43,3 +43,9 @@ body{
     height: 50px;
     float: left;
 }
+.ui .sub-item{
+    border-left: 5px solid #fff;
+}
+.ui .sub-item p{
+    font-size: 16px;
+}
