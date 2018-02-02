@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Sistema Biblioteca</title>
     <link type="image/x-icon" href="img/logo2.png" rel="icon" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/semantic.min.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
 <body>
     <header>
@@ -28,13 +29,94 @@
               <a class="item"><p><i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i>Estadisticas</p></a>
               <a class="item"><p><i class="fa fa-print fa-2x" aria-hidden="true"></i>Imprimir</p></a>
               <a class="item" id="usuarios"><p><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>Usuarios</p></a>
-              <a class="item usuarios sub-item"><p><i class="fa fa-user-plus fa-1x" aria-hidden="true"></i>Agregar Usuario</p></a>
-              <a class="item usuarios sub-item"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> <p>Modificar Usuario</p></a>
+              <a class="item usuarios sub-item" id="AgreUsu"><p><i class="fa fa-user-plus fa-1x" aria-hidden="true"></i>Agregar Usuario</p></a>
+              <a class="item usuarios sub-item" id="MoUsu"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> <p>Modificar Usuario</p></a>
               
         </div>
     </header>
+
+    <section class="main">
+      <div class="Dusu row" id="ReUsu">
+        <div class="col-md-12">
+          <h1 class="text-center">Registrar Usuarios</h1>
+          <form id="FoUsu">
+            <div class="row">
+              <div class="form-group col-md-4 col-md-offset-4">
+                  <select class="form-control" id="UsuTipo" required>
+                    <option value="">-- Selecciona el tipo de usuario --</option>
+                    <option value="Maestro">Maestro</option>
+                    <option value="Alumno">Alumno</option>
+                    <option value="Maestro">Administrativo</option>
+                  </select>       
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="form-group col-md-4">
+                  <label for="UsuNombre">Nombre:</label>  
+                  <input type="text" class="form-control" id="UsuNombre" required>    
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="UsuApPat">Apellido Paterno:</label>  
+                  <input type="text" class="form-control" id="UsuApPat" required>    
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="UsuApMat">Apellido Materno:</label>  
+                  <input type="text" class="form-control" id="UsuApMat" required>    
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="UsuNoC">No. de Control:</label>  
+                  <input type="number" class="form-control" id="UsuNoc" required>    
+              </div>
+              <div class="form-group col-md-6">
+                  <label for="UsuCa">Carrera:</label>
+                  <select class="form-control" id="UsuCa">
+                    
+                  </select>       
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="form-group col-md-6 col-md-offset-3">
+                    <button type="submit" class="btn btn-success btn-block btn-lg">Guardar <span class="glyphicon glyphicon-floppy-disk"></span></button>    
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="Dusu row" id="VerUsu">
+        <div class="col-md-12">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
+            <input class="form-control input-lg" type="text" id="BusUsu" placeholder="Buscar ususarios"> 
+          </div>
+        </div>
+        <div class="col-md-12">
+        <div id="TaEn">
+          <table class="table table-hover table-responsive">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Tipo</th>
+                <th>No. Control</th>
+                <th>Carrera</th>
+                <th>Fecha de registro</th>
+              </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+          </table>  
+        </div>    
+      </div>
+    </section>
 <script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/semantic.min.js"></script>  
 <script src="js/menu.js"></script>  
+<script src="js/usuarios.js"></script>  
 </body>
 </html>
