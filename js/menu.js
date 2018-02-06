@@ -22,7 +22,7 @@ $(document).ready(function (){
                $('.prestamos').hide("slow");
                p = 0;
            }
-          
+          	
        });
         $('#consultas').click(function(){
            if(c==0){
@@ -44,4 +44,19 @@ $(document).ready(function (){
            }
           
        });
+	   $(document).on("click","#registrarLibro",function(){
+		   $(".mostrar").hide();
+		   $("#agregarLibro").show();
+	   });
+	   
+	   $(document).on("click","#AgreUsu",function(){
+		   $(".mostrar").hide();
+		   $("#ReUsu").show();
+	   });
+	   
+	   $(document).on("click","#MoUsu",function(){
+		   $(".mostrar").hide();
+		   $("#VerUsu").show();
+	   });
     });
+	
