@@ -8,7 +8,7 @@
         $numControl = mysqli_real_escape_string($con,$_POST['numControl']);
         $carrera = mysqli_real_escape_string($con, $_POST['carrera']);
         $sql = "INSERT INTO usuarios VALUES(null,'$usuario','$nombre','$apellidoPaterno','$apellidoMaterno',$numControl,$carrera)";
-        if($con->query($sql)){
+        if($con->query($sql) == TRUE){
             echo 1;
         }else{
             echo 0;

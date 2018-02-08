@@ -1,11 +1,11 @@
 $('#FoUsu').submit(function(evt) {
     evt.preventDefault();
-    var datos = $('#FoUsu').serealizeArray();
+    var datos = $('#FoUsu').serializeArray();
     $.ajax({
         url: 'php/agregarUsuario.php',
         type: 'POST',
         data: datos,
-        succes: function(response) {
+        success: function(response) {
             if (response == 1) {
                 $('#UsuNombre').val('');
                 $('#UsuApPat').val('');
@@ -14,6 +14,9 @@ $('#FoUsu').submit(function(evt) {
                 $('#UsuNoC').val('');
                 $('#UsuApMat').val('');
                 $('#UsuCa').val('');
+                alert("Agregado Correctamente");
+            } else {
+                alert('No se ha podido Aagregar');
             }
         }
     });
