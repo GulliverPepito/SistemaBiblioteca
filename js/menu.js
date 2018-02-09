@@ -48,6 +48,11 @@ $(document).ready(function (){
 		   $(".mostrar").hide();
 		   $("#agregarLibro").show();
 	   });
+
+     $(document).on("click","#ModificarLibro",function(){
+       $(".mostrar").hide();
+       $("#TablaLibros").show();
+     });
 	   
 	   $(document).on("click","#AgreUsu",function(){
 		   $(".mostrar").hide();

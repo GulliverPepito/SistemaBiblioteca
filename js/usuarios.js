@@ -16,7 +16,7 @@ $('#FoUsu').submit(function(evt) {
                 $('#UsuCa').val('');
                 alert("Agregado Correctamente");
             } else {
-                alert('No se ha podido Aagregar');
+                alert('No se ha podido Agregar');
             }
         }
     });
