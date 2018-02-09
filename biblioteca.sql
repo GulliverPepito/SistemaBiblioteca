@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-02-2018 a las 17:08:41
+-- Tiempo de generación: 09-02-2018 a las 19:56:45
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.2.0
 
@@ -189,10 +189,22 @@ CREATE TABLE `ubicacion` (
 
 CREATE TABLE `usuarios` (
   `ID_Usuario` int(11) NOT NULL,
-  `Usuario` varchar(50) DEFAULT NULL,
-  `Contrasenia` varchar(20) DEFAULT NULL,
-  `Tipo` varchar(30) DEFAULT NULL
+  `tipo` varchar(50) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
+  `apellido_pat` varchar(50) NOT NULL,
+  `apellido_mat` varchar(50) NOT NULL,
+  `num_control` varchar(50) NOT NULL,
+  `carrera` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`ID_Usuario`, `tipo`, `Nombre`, `apellido_pat`, `apellido_mat`, `num_control`, `carrera`) VALUES
+(1, 'Maestro', 'Jonathan', 'Gonzalez', 'Franco', '141600009', 1),
+(2, 'Maestro', 'Jonathan', 'Gonzalez', 'Franco', '141600009', 1),
+(4, 'Alumno', 'Juan', 'Ra', 'Mon', '121312121', 1);
 
 --
 -- Índices para tablas volcadas
@@ -262,8 +274,7 @@ ALTER TABLE `ubicacion`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`ID_Usuario`),
-  ADD UNIQUE KEY `Usuario` (`Usuario`);
+  ADD PRIMARY KEY (`ID_Usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -333,7 +344,7 @@ ALTER TABLE `ubicacion`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
