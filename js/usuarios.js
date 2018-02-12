@@ -1,6 +1,7 @@
 $('#FoUsu').submit(function(evt) {
     evt.preventDefault();
     var datos = $('#FoUsu').serializeArray();
+    console.log("datos", datos);
     $.ajax({
         url: 'php/agregarUsuario.php',
         type: 'POST',
