@@ -1,4 +1,4 @@
-<?php  
+    <?php  
 /*
     session_start();
     if(isset($_SESSION['user'])){
@@ -20,6 +20,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Sistema Biblioteca</title>
     <link type="image/x-icon" href="img/logo2.png" rel="icon" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -34,62 +35,7 @@
     <section class="main">
         <div class="container-fluid">
             <div class="row mostrar" id="ReUsu">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h1 class="text-center">Registrar Usuarios</h1>
-                            <form id="FoUsu">
-                                <div class="row">
-                                    <div class="form-group col-md-4 offset-md-4">
-                                        <select class="form-control" id="UsuTipo" name="usuario" required>
-                            <option value="">-- Selecciona el tipo de usuario --</option>
-                            <option value="Maestro">Maestro</option>
-                            <option value="Alumno">Alumno</option>
-                            <option value="Administrativos">Administrativo</option>
-                          </select>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="form-group col-md-4">
-                                        <label for="UsuNombre">Nombre:</label>
-                                        <input type="text" class="form-control" id="UsuNombre" name="nombre" required>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="UsuApPat">Apellido Paterno:</label>
-                                        <input type="text" class="form-control" id="UsuApPat" name="apellidoPaterno" required>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="UsuApMat">Apellido Materno:</label>
-                                        <input type="text" class="form-control" id="UsuApMat" name="apellidoMaterno" required>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="UsuNoC">No. de Control:</label>
-                                        <input type="number" class="form-control" id="UsuNoc" name="numControl" required>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="UsuCa">Carrera:</label>
-                                        <select class="form-control" id="UsuCa" name="carrera">
-                            <option value="seleccione">Seleccione...</option>
-                                  <option value="1">Ing. Sistemas Computacionales</option>
-                                  <option value="2">Ing. Gestion Empresarial</option>
-                                  <option value="3">Ing. Industrial</option>
-                                  <option value="4">Ing. Industrias Alimentarias</option>
-                                  <option value="5">Ing. Electromecanica</option>
-                                  <option value="6">Ing. Ambiental</option>
-                          </select>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="form-group col-md-6 offset-md-3">
-                                        <button type="submit" class="btn btn-success btn-block btn-lg">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <?php require "vistas/usuarios.php"; ?>
             </div>
             <div class="row mostrar" id="agregarLibro">
                 <div class="col-md-12">
@@ -205,34 +151,7 @@
 
         <div class="row mostrar" id="VerUsu">
             <div class="card">
-                <div class="col-md-12">
-                    <div class="card-body">
-                        <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control input-lg" type="text" id="BusUsu" placeholder="Buscar ususarios">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div id="TaEn">
-                            <table class="table table-hover table-responsive">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Apellido Paterno</th>
-                                        <th>Apellido Materno</th>
-                                        <th>Tipo</th>
-                                        <th>No. Control</th>
-                                        <th>Carrera</th>
-                                        <th>Fecha de registro</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+               <?php require "vistas/verUsu.php"; ?>
             </div>
         </div>
 
