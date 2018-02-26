@@ -9,23 +9,26 @@
         <link rel="stylesheet" href="css/login.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
     </head>
-    <body class="bg-login">
-        <div class="login-box">
-        	<div>
-        	<i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
-        		
-        	</div>
-            <form id="formlg">
-                <div class="input-lg">
-                    <input type="text"  placeholder="Usuario" name="usuario_txt" required pattern="[A-Za-z0-9_-]{1,15}">
+    <body>
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="login col-md-5">
+                    <div>
+                        <img src="img/tec.jpg">
+                    </div>
+                    <form id="formlg">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Usuario" name="usuario_txt" required">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control form-control-lg" name="pass_pw" placeholder="Contraseña" required">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-danger btn-block btn-lg" name="submit" class="botonlg boton">Iniciar Sesion</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="input-lg">
-                    <input type="password"  name="pass_pw" placeholder="Contraseña" required pattern="[A-Za-z0-9_-]{1,15}">
-                </div>
-                <div class="input-lg">
-                    <input type="submit" name="submit" class="botonlg boton" value="Iniciar Sesion">
-                </div>
-            </form>
+            </div>
         </div>
 
         <script src="js/jquery-3.1.1.min.js"></script>
