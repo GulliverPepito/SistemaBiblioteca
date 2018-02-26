@@ -24,9 +24,12 @@
                             <input type="password" class="form-control form-control-lg" name="pass_pw" placeholder="Contraseña" required">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-danger btn-block btn-lg" name="submit" class="botonlg boton">Iniciar Sesion</button>
+                            <button type="submit" class="btn btn-danger btn-block btn-lg" name="submit" id="iniB">Iniciar Sesion</button>
                         </div>
                     </form>
+                    <div id="ver">
+                        
+                    </div>
                 </div>
             </div>
         </div>

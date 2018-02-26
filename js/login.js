@@ -6,7 +6,7 @@ $(document).on('submit','#formlg',function(event){
 		dataType: 'json',
 		data: $(this).serialize(),
 		beforeSend: function(){
-			$('.botonlg').val('Validando...');
+			$("#iniB").html('Iniciando...');
 		},
 		success: function(res){
 			console.log(res);
@@ -14,9 +14,9 @@ $(document).on('submit','#formlg',function(event){
 				location.href = 'index.php';
 			} else {
 				setTimeout(function(){
-					$('.login-box').append('<div class="alert alert-danger"><strong>Alerta!</strong> El Usuario y/o Contraseña estan mal.</div>');
+					$('#ver').html('<div class="alert alert-danger"><strong>Alerta!</strong> El Usuario y/o Contraseña estan mal.</div>');
+					$("#iniB").html('Iniciar Sesion');
 				},1000);
-				$('.botonlg').val('Iniciar Sesion');
 			}
 		}
 	});
