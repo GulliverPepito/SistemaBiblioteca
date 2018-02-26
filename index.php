@@ -1,5 +1,4 @@
-    <?php  
-
+<?php  
     session_start();
     if(isset($_SESSION['user'])){
        if($_SESSION['user']['Tipo']!=1){
@@ -8,8 +7,6 @@
     }else{
         header('Location: login.php');
     }
-    
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

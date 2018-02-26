@@ -1,3 +1,11 @@
+<?php  
+    session_start();
+    if(isset($_SESSION['user'])){
+       if($_SESSION['user']['Tipo']==1){
+            header('Location: index.php');
+        }
+    }
+?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>
