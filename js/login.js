@@ -14,7 +14,7 @@ $(document).on('submit','#formlg',function(event){
 				location.href = 'index.php';
 			} else {
 				setTimeout(function(){
-					$('.login-box').append('<div class="alert alert-warning"><strong>Alerta!</strong> El Usuario y/o Contraseña estan mal.</div>');
+					$('.login-box').append('<div class="alert alert-danger"><strong>Alerta!</strong> El Usuario y/o Contraseña estan mal.</div>');
 				},1000);
 				$('.botonlg').val('Iniciar Sesion');
 			}

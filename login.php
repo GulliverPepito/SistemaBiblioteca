@@ -12,7 +12,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-md-center">
-                <div class="login col-md-5">
+                <div class="login-box col-md-5">
                     <div>
                         <img src="img/tec.jpg">
                     </div>
