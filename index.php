@@ -5,6 +5,8 @@
        if($_SESSION['user']['Tipo']!=1){
             header('Location: login.php');
         }
+    }else{
+        header('Location: login.php');
     }
     
 
