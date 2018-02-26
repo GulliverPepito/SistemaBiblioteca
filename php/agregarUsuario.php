@@ -1,17 +1,11 @@
 <?php
     include 'conexion.php';
     if(isset($_POST)){
-        $nombre = mysqli_real_escape_string($con,$_POST['nombre']);
-        $apellidoPaterno = mysqli_real_escape_string($con, $_POST['apellidoPaterno']);
-        $apellidoMaterno = mysqli_real_escape_string($con,$_POST['apellidoMaterno']);
-        $numControl = mysqli_real_escape_string($con,$_POST['numControl']);
-        $usuario = mysqli_real_escape_string($con,$_POST['usuario']);
-        $carrera = mysqli_real_escape_string($con, $_POST['carrera']);
-        $sql = "INSERT INTO usuarios VALUES(NULL,'$nombre','$apellidoPaterno','$apellidoMaterno',$numControl,'$usuario','',$carrera,'')";
-        if($con->query($sql) == TRUE){
-            echo 1;
+        $sql = "INSERT INTO prestatario VALUES(NULL,'$_POST[nombre]','$_POST[apellidoPaterno]','$_POST[apellidoMaterno]','$_POST[carrera]','$_POST[semestre]','$_POST[usuario]','$_POST[numControl]','$_POST[email]','$_POST[telefono]','$_POST[domicilio]','$_POST[colonia]','$_POST[municipio]','$_POST[estado]','$_POST[cp]')";
+        if($con->query($sql)){
+            echo "El usuarios se ha guardado";
         }else{
-            echo 0;
+            echo "Error: ".mysqli_error($con);
         }
     }
 ?>

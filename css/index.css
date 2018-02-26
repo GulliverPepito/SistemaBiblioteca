@@ -65,3 +65,38 @@ body{
     cursor: pointer;
 }
 
+button{
+    cursor: pointer;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.carga{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    background: rgba(0,0,0,0.8);
+    display: none;
+}
+
+.logo{
+    z-index: -1;
+    width: 5%;
+    margin: 20% 46%;
+    position: absolute;
+}
+
+.carIma{
+    width: 11%;
+    margin: 17% 43%;
+    position: absolute;
+    animation: girando 1s linear infinite;
+}
+
+@keyframes girando {
+  from { transform: rotate(-360deg);    }
+  to   { transform: rotate(0deg); }
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+

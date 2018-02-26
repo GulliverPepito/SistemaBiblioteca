@@ -31,6 +31,10 @@
 </head>
 
 <body>
+    <div class="carga" id="carga">
+        <p><img class="carIma" src="img/carga.svg"></p>
+        <p><img class="logo" src="img/logo.png"></p>
+    </div>
     <?php require "php/menu.php"; ?>
     <section class="main">
         <div class="container-fluid">
