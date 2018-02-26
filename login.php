@@ -20,23 +20,27 @@
     <body>
         <div class="container">
             <div class="row justify-content-md-center">
-                <div class="login-box col-md-5">
-                    <div>
-                        <img src="img/tec.jpg">
-                    </div>
-                    <form id="formlg">
-                        <div class="form-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="Usuario" name="usuario_txt" required">
+                <div class="col-md-6">
+                    <div class="login row justify-content-md-center">
+                        <div class="col-md-10">
+                            <div>
+                                <img src="img/tec.png">
+                            </div>
+                            <form id="formlg">
+                                <div class="form-group">
+                                     <input type="text" class="form-control form-control-lg" placeholder="Usuario" name="usuario_txt" required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-lg" name="pass_pw" placeholder="Contraseña" required">
+                                </div>
+                                <div class="form-group">
+                                        <button type="submit" class="btn btn-danger btn-block btn-lg" name="submit" id="iniB">Iniciar Sesion</button>
+                                </div>
+                            </form>
+                            <div id="ver">
+                                    
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control form-control-lg" name="pass_pw" placeholder="Contraseña" required">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-danger btn-block btn-lg" name="submit" id="iniB">Iniciar Sesion</button>
-                        </div>
-                    </form>
-                    <div id="ver">
-                        
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 body{
-    background: #FFF;
+    background: url("../img/fondo.jpg") no-repeat fixed;
+    background-size: cover; 
 }
 
 img{
@@ -12,4 +13,10 @@ img{
 
 button{
     cursor: pointer;
+}
+
+.login{
+    background: rgba(255,255,255,0.9);
+    padding-bottom: 5%;
+    margin-top: 12%;
 }
