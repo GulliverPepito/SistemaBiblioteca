@@ -1,17 +1,3 @@
-<?php  
-
-    session_start();
-    if(isset($_SESSION['user'])){
-       if($_SESSION['user']['tipo']==1){
-            header('Location: ./');
-        }else if($_SESSION['user']['tipo']==2){
-            header('Location: Maestro/');
-        } else if($_SESSION['user']['tipo']==3){
-            header('Location: Administrativo/');
-        }
-    }
-
-?>
 <!doctype html>
 <html class="no-js" lang="">
     <head>

@@ -11,8 +11,8 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 		$resulta = $consulta->get_result();
 		if($resulta->num_rows > 0) {
 			$datos = $resulta->fetch_assoc();
-			echo json_encode(array('error'=>false, 'tipo'=>$datos['tipo']));
 			$_SESSION['user'] = $datos;
+			echo 1;
 		} else {
 			echo json_encode(array('error'=> true));
 		}

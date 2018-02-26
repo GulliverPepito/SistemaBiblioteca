@@ -1,18 +1,12 @@
     <?php  
-/*
+
     session_start();
     if(isset($_SESSION['user'])){
-       if($_SESSION['user']['tipo']!=1){
+       if($_SESSION['user']['Tipo']!=1){
             header('Location: login.php');
-        }else if($_SESSION['user']['tipo']==2){
-            header('Location: Gerente/');
-        } else if($_SESSION['user']['tipo']==3){
-            header('Location: Vendedor/');
         }
-    } else {
-      header('Location: login.php');
     }
-    */
+    
 
 ?>
 <!DOCTYPE html>

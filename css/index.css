@@ -20,9 +20,9 @@ body{
 .cabecera .fa{
     display: block;
     float: left;
-    margin-left: 70%;
-    font-size: 30px;
-    margin-top: 7px;
+    margin-left: 65%;
+    font-size: 25px;
+    margin-top: 10px;
 }
 .ui .item p{
     font-size: 18px;

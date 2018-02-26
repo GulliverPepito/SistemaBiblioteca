@@ -22,5 +22,9 @@ $(document).ready(function() {
             console.log(res);
             $("#carga").hide(0);
         });
-    });    
+    });  
+
+    function mostrar() {
+              
+    }  
 });
