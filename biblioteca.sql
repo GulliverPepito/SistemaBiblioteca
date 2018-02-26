@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-02-2018 a las 16:43:57
--- Versión del servidor: 10.1.29-MariaDB
--- Versión de PHP: 7.2.0
+-- Tiempo de generación: 26-02-2018 a las 18:51:38
+-- Versión del servidor: 10.1.25-MariaDB
+-- Versión de PHP: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -68,7 +68,8 @@ INSERT INTO `carrera` (`ID_Carrera`, `Carrera`, `Codigo`) VALUES
 (3, 'Ing. Industrial', NULL),
 (4, 'Ing. En Industrias Alimentarias', NULL),
 (5, 'Ing. Electromecanica', NULL),
-(6, 'Ing. Ambiental', NULL);
+(6, 'Ing. Ambiental', NULL),
+(7, 'N/A', NULL);
 
 -- --------------------------------------------------------
 
@@ -144,8 +145,18 @@ CREATE TABLE `prestatario` (
   `Colonia` varchar(50) DEFAULT NULL,
   `Municipio` varchar(50) DEFAULT NULL,
   `Estado` varchar(50) DEFAULT NULL,
-  `CP` varchar(10) DEFAULT NULL
+  `CP` varchar(10) DEFAULT NULL,
+  `Fecha_Re` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `prestatario`
+--
+
+INSERT INTO `prestatario` (`ID_Prestatario`, `Nombres`, `ApellidoP`, `ApellidoM`, `Carrera_FK`, `Semestre`, `Tipo_FK`, `No_Control`, `Email`, `Telefono`, `Domicilio`, `Colonia`, `Municipio`, `Estado`, `CP`, `Fecha_Re`) VALUES
+(1, 'Juan Ramon', 'Garcia ', 'Angel', 1, 8, 2, '141600003', 'jramongarciaangel@gmail.com', '3481167983', 'Pedro Velazquez #99', 'Caja Popular', 'Arandas', 'Jalisco ', '47180', '0000-00-00 00:00:00'),
+(2, 'Pedro', 'Lopez', 'Lopez', 5, 4, 2, '1500005', 'pedro@hotmail.com', '3481265879', 'Av. Colon', 'Centro', 'Arandas', 'Jalisco', '47180', '0000-00-00 00:00:00'),
+(7, 'sdfgh', 'sdfgh', 'sadfgh', 2, 1, 1, '45187596', 'sadfg@asdfg', '54156', 'sdfgh', 'Zxdvb', 'sdfgbh', 'sdfg', '4774', '2018-02-26 09:48:29');
 
 -- --------------------------------------------------------
 
@@ -189,10 +200,17 @@ CREATE TABLE `ubicacion` (
 
 CREATE TABLE `usuarios` (
   `ID_Usuario` int(11) NOT NULL,
-  `Usuario` varchar(50) DEFAULT NULL,
-  `Contrasenia` varchar(20) DEFAULT NULL,
+  `Usuario` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `Contrasenia` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `Tipo` varchar(30) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`ID_Usuario`, `Usuario`, `Contrasenia`, `Tipo`) VALUES
+(1, 'Juan', '123', '1');
 
 --
 -- Índices para tablas volcadas
@@ -274,67 +292,56 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `adeudos`
   MODIFY `ID_Adeudos` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `areas`
 --
 ALTER TABLE `areas`
   MODIFY `ID_Areas` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
-  MODIFY `ID_Carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `ID_Carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
   MODIFY `ID_Libro` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `libros_detalle`
 --
 ALTER TABLE `libros_detalle`
   MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
   MODIFY `ID_Prestamo` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `prestatario`
 --
 ALTER TABLE `prestatario`
-  MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `tema_general`
 --
 ALTER TABLE `tema_general`
   MODIFY `ID_Tema_Gral` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `tipo_prestatario`
 --
 ALTER TABLE `tipo_prestatario`
   MODIFY `ID_Tipo` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
   MODIFY `ID_Ubicacion` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
