@@ -8,6 +8,9 @@ $('#btnAgregarLibro').click(function() {
         url: 'php/agregarLibro.php',
         type: 'POST',
         data: datos,
+        beforeSend: function() {
+            $("#carga").show(0);
+        },
         success: function(response) {
             if (response == 1) {
                 alert('Agregado Correctamente');
@@ -28,9 +31,11 @@ $('#btnAgregarLibro').click(function() {
                 $('#url').val('');
                 $('#temaGeneral').val('');
                 $('#temaEspecifico').val('');
+                $('#carga').hide(0);
 
             } else {
                 alert('Error No se pudo Agregar');
+                $('#carga').hide(0);
             }
         }
     });
