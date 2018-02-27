@@ -19,6 +19,7 @@ body {
     color: #921a1e;
     font-size: 40px;
     float: left;
+    cursor: pointer;
 }
 
 .cabecera .fa {
