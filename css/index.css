@@ -1,92 +1,106 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
-body{
+
+body {
     background: #E0E0E0;
 }
-.cabecera{
+
+.cabecera {
     width: 100%;
     height: 55px;
     display: block;
     background: #fff;
     padding: 5px;
 }
-.cabecera i{
+
+.cabecera i {
     color: #921a1e;
     font-size: 40px;
     float: left;
 }
-.cabecera .fa{
+
+.cabecera .fa {
     display: block;
     float: left;
     margin-left: 65%;
     font-size: 25px;
     margin-top: 10px;
 }
-.ui .item p{
+
+.ui .item p {
     font-size: 18px;
 }
-.ui .item i{
+
+.ui .item i {
     float: left;
     margin-left: 10px;
     margin-right: 10px;
 }
-.ui .item h3{
+
+.ui .item h3 {
     margin-left: 10px;
 }
-.ui.inverted.menu{
+
+.ui.inverted.menu {
     background: #921a1e;
 }
-.cabecera img{
+
+.cabecera img {
     width: auto;
     height: 50px;
     float: left;
 }
-.ui .sub-item{
+
+.ui .sub-item {
     border-left: 5px solid #fff;
 }
-.ui .sub-item p{
+
+.ui .sub-item p {
     font-size: 16px;
 }
 
-.main{
+.main {
     width: 80%;
     padding: 1% 3%;
 }
 
-.mostrar{
-	display:none;
+.mostrar {
+    display: none;
 }
-#AgregarLibro{
+
+#AgregarLibro {
     width: 100%;
     height: auto;
     display: block;
     cursor: pointer;
 }
 
-button{
+button {
     cursor: pointer;
 }
 
+
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-.carga{
+
+.carga {
     position: fixed;
     width: 100%;
     height: 100%;
     z-index: 2000;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     display: none;
 }
 
-.logo{
+.logo {
     z-index: -1;
     width: 5%;
     margin: 20% 46%;
     position: absolute;
 }
 
-.carIma{
+.carIma {
     width: 11%;
     margin: 17% 43%;
     position: absolute;
@@ -94,9 +108,34 @@ button{
 }
 
 @keyframes girando {
-  from { transform: rotate(-360deg);    }
-  to   { transform: rotate(0deg); }
+    from {
+        transform: rotate(-360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
+
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
+.tabla table {
+    width: 100%;
+    height: auto;
+}
+
+.tinto {
+    background: #921a1e;
+}
+
+button {
+    width: 100%;
+    height: auto;
+}
+
+.libro p {
+    color: #fff;
+    width: 100%;
+    height: auto;
+    margin: 5px;
+}
