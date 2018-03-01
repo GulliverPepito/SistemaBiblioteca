@@ -56,6 +56,7 @@
     <script src="js/agregarLibro.js"></script>
     <script src="js/usuarios.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/editarLibro.js"></script>
     <script>
         $('#FoUsu').serializeArray();
     </script>
