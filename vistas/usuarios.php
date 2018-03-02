@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="UsuSe">Semestre:</label>
-                        <input type="number" class="inpUsu form-control" id="UsuSe" name="semestre" required>
+                        <input type="text" class="inpUsu form-control" id="UsuSe" name="semestre" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="UsuEm">Email:</label>
