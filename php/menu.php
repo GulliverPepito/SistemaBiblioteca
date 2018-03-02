@@ -19,8 +19,6 @@
             <a class="item prestamos sub-item" id="NuevoPrestamo"><i class="fa fa-plus fa-2x" aria-hidden="true"></i> <p>Nuevo Prestamo</p></a>
             <a class="item prestamos sub-item" id="ModificarPrestamo"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> <p>Modificar Prestamo</p></a>
             <a class="item" id="consultas"><i class="fa fa-search fa-2x" aria-hidden="true"></i><p>Consultas</p></a>
-            <a class="item consultas sub-item" id="Consultaslibros"><i class="fa fa-book fa-2x" aria-hidden="true"></i> <p>Libros</p></a>
-            <a class="item consultas sub-item" id="Consultasprestamos"><i class="fa fa-handshake-o fa-2x" aria-hidden="true"></i><p>Prestamos</p></a>
             <a class="item" id="Estadisticas">
                 <p><i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i>Estadisticas</p>
             </a>
