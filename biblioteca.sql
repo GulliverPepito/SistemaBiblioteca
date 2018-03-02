@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-03-2018 a las 15:19:57
--- Versión del servidor: 10.1.25-MariaDB
--- Versión de PHP: 5.6.31
+-- Tiempo de generación: 02-03-2018 a las 19:18:35
+-- Versión del servidor: 10.1.29-MariaDB
+-- Versión de PHP: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -97,6 +97,13 @@ CREATE TABLE `libros` (
   `Tema_Especifico` varchar(100) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `libros`
+--
+
+INSERT INTO `libros` (`ID_Libro`, `ISBN`, `Codigo_Barras`, `Titulo`, `Autor`, `Titulo_Original`, `Anio_Edicion`, `Lugar_Edicion`, `Editorial`, `Paginas`, `Ubicacion_FK`, `Volumen`, `Num_Serie`, `Carrera_FK`, `URL`, `Tema_General_FK`, `Tema_Especifico`) VALUES
+(1, '322324343', '1232342', 'Codigo de Da Vinci', 'Dan Brown', 'Code Da vinci', 2014, 'California', 'Planeta', 300, 1, 3, '123232', 1, 'http://web.com', 0, 'Literatura');
+
 -- --------------------------------------------------------
 
 --
@@ -168,6 +175,18 @@ CREATE TABLE `tema_general` (
   `ID_Tema_Gral` int(11) NOT NULL,
   `Tema` varchar(100) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tema_general`
+--
+
+INSERT INTO `tema_general` (`ID_Tema_Gral`, `Tema`) VALUES
+(1, 'Fisica'),
+(2, 'Quimica'),
+(3, 'Programacion'),
+(4, 'Matematicas'),
+(5, 'Literatura'),
+(6, 'Ingles');
 
 -- --------------------------------------------------------
 
@@ -301,56 +320,67 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `adeudos`
   MODIFY `ID_Adeudos` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `areas`
 --
 ALTER TABLE `areas`
   MODIFY `ID_Areas` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
   MODIFY `ID_Carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `ID_Libro` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `libros_detalle`
 --
 ALTER TABLE `libros_detalle`
   MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
   MODIFY `ID_Prestamo` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `prestatario`
 --
 ALTER TABLE `prestatario`
   MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `tema_general`
 --
 ALTER TABLE `tema_general`
-  MODIFY `ID_Tema_Gral` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Tema_Gral` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT de la tabla `tipo_prestatario`
 --
 ALTER TABLE `tipo_prestatario`
   MODIFY `ID_Tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
   MODIFY `ID_Ubicacion` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -120,6 +120,9 @@ button {
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
+
+/***********Modificar Libro ******/
+
 .tabla table {
     width: 100%;
     height: auto;
@@ -144,3 +147,14 @@ button {
 .noMostrar {
     display: none;
 }
+
+#agregarMasModificar {
+    margin-top: 25px;
+}
+
+.agregar {
+    display: none;
+}
+
+
+/**********************************************/

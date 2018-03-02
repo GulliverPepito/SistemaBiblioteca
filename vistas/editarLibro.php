@@ -25,7 +25,7 @@
                                         <th>Carrera</th>
                                     </tr>
                                 </thead>
-                                <tbody id="datos">
+                                <tbody id="datosEditarLibros">
                                     <tr>
                                        <td colspan="12">
                                         <div class="card tinto">
@@ -95,7 +95,27 @@
                                                             <p class="noMostrar">Tema Especifico:</p>
                                                         </div>
                                                     </div>
-                                                    <div class="row justify-content-end">
+                                            
+                                                    <form action="" id="libroAgregarMas">
+                                                            <div class="row">
+                                                                <div class="form-group col-md-5 agregar">
+                                                                    <label for="isnbModificar" class="text-white">ISNB</label>
+                                                                    <input type="text" class="form-control" id="isnbModificar" name="isnbModificar">
+                                                                </div>
+                                                                <div class="col-md-5 form-group agregar">
+                                                                    <label for="codigoBarrasModificar" class="text-white">Codigo de Barras</label>
+                                                                    <input type="text" class="form-control" id="codigoBarrasModificar" name="codigoBarrasModificar">
+                                                                </div>
+                                                                <div class="col-md-2 agregar">
+                                                                    <button type="button" class="btn btn-primary" id="agregarMasModificar"><i class="fa fa-save"></i> Agregar</button>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                    </form>
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <button type="button" class="btn btn-info" id="agregarMas"><i class="fa fa-plus" aria-hidden="true"></i> Agregar</button>
+                                                        </div>
                                                         <div class="col-md-3">
                                                             <button type="button" class="btn btn-primary" id="btnEditar"><i class="fa fa-cog" aria-hidden="true"></i> Editar</button>
                                                         </div>
