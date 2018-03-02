@@ -37,16 +37,15 @@
             <div class="row mostrar" id="agregarLibro">
                 <?php require "vistas/agregarLibro.php"; ?>
             </div>
-        </div>
-
-        <div class="row mostrar" id="VerUsu">
-            <div class="card">
-               <?php require "vistas/verUsu.php"; ?>
+            <div class="row mostrar" id="VerUsu">
+                <div class="card">
+                   <?php require "vistas/verUsu.php"; ?>
+                </div>
             </div>
-        </div>
 
-        <div class="row mostrar" id="TablaLibros">
-            <?php require "vistas/editarLibro.php";?>
+            <div class="row mostrar" id="TablaLibros">
+                <?php require "vistas/editarLibro.php";?>
+            </div>
         </div>
     </section>
     <script src="js/jquery-3.1.1.min.js"></script>

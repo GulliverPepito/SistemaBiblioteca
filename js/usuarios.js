@@ -44,6 +44,7 @@ $(document).ready(function() {
       $("#MUsuMu").val(datos.children('td:eq(13)').text());
       $("#MUsuEst").val(datos.children('td:eq(14)').text());
       $("#MUsuCP").val(datos.children('td:eq(15)').text());
+      $("#GuMUsu").attr("disabled", true);
     });
 
     $('#FoMoUsu').submit(function(e) {

@@ -3,7 +3,7 @@
             <a href="index.php"><img src="img/logo.png" alt=""></a>
             <i class="fa fa-user-circle dropdown-toggle" aria-hidden="true" data-toggle="dropdown"><?php echo $_SESSION['user']['Usuario'] ?></i>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Perfil</a>
+                <a class="dropdown-item" href="vistas/perfil.php">Perfil</a>
                 <a class="dropdown-item" href="php/salir.php">Salir</a>
               </div>
         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-02-2018 a las 18:51:38
+-- Tiempo de generación: 02-03-2018 a las 15:19:57
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 5.6.31
 
@@ -136,7 +136,7 @@ CREATE TABLE `prestatario` (
   `ApellidoP` varchar(30) DEFAULT NULL,
   `ApellidoM` varchar(30) DEFAULT NULL,
   `Carrera_FK` int(11) DEFAULT NULL,
-  `Semestre` int(5) DEFAULT NULL,
+  `Semestre` varchar(20) DEFAULT NULL,
   `Tipo_FK` int(11) DEFAULT NULL,
   `No_Control` varchar(15) DEFAULT NULL,
   `Email` varchar(50) DEFAULT NULL,
@@ -154,9 +154,9 @@ CREATE TABLE `prestatario` (
 --
 
 INSERT INTO `prestatario` (`ID_Prestatario`, `Nombres`, `ApellidoP`, `ApellidoM`, `Carrera_FK`, `Semestre`, `Tipo_FK`, `No_Control`, `Email`, `Telefono`, `Domicilio`, `Colonia`, `Municipio`, `Estado`, `CP`, `Fecha_Re`) VALUES
-(1, 'Juan Ramon', 'Garcia ', 'Angel', 1, 8, 2, '141600003', 'jramongarciaangel@gmail.com', '3481167983', 'Pedro Velazquez #99', 'Caja Popular', 'Arandas', 'Jalisco ', '47180', '0000-00-00 00:00:00'),
-(2, 'Pedro', 'Lopez', 'Lopez', 5, 4, 2, '1500005', 'pedro@hotmail.com', '3481265879', 'Av. Colon', 'Centro', 'Arandas', 'Jalisco', '47180', '0000-00-00 00:00:00'),
-(7, 'sdfgh', 'sdfgh', 'sadfgh', 2, 1, 1, '45187596', 'sadfg@asdfg', '54156', 'sdfgh', 'Zxdvb', 'sdfgbh', 'sdfg', '4774', '2018-02-26 09:48:29');
+(1, 'Juan RamÃ³n', 'GarcÃ­a', 'Ãngel', 1, '8', 2, '141600003', 'jramongarciaangel@gmail.com', '3481167983', 'Pedro Velazquez #99', 'Caja Popular', 'Arandas', 'Jalisco ', '47180', '0000-00-00 00:00:00'),
+(2, 'Pedro', 'Lopez', 'Lopez', 5, '4', 2, '1500005', 'pedro@hotmail.com', '3481265879', 'Av. Colon', 'Centro', 'Arandas', 'Jalisco', '47180', '0000-00-00 00:00:00'),
+(3, 'sdfgh', 'sdfgh', 'sadfgh', 2, '1', 1, '45187596', 'sadfg@asdfg', '54156', 'sdfgh', 'Zxdvb', 'sdfgbh', 'sdfg', '4774', '2018-02-26 09:48:29');
 
 -- --------------------------------------------------------
 
@@ -179,6 +179,15 @@ CREATE TABLE `tipo_prestatario` (
   `ID_Tipo` int(11) NOT NULL,
   `Tipo` varchar(30) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tipo_prestatario`
+--
+
+INSERT INTO `tipo_prestatario` (`ID_Tipo`, `Tipo`) VALUES
+(1, 'Maestro'),
+(2, 'Alumno'),
+(3, 'Administrativo');
 
 -- --------------------------------------------------------
 
@@ -321,7 +330,7 @@ ALTER TABLE `prestamos`
 -- AUTO_INCREMENT de la tabla `prestatario`
 --
 ALTER TABLE `prestatario`
-  MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `tema_general`
 --
@@ -331,7 +340,7 @@ ALTER TABLE `tema_general`
 -- AUTO_INCREMENT de la tabla `tipo_prestatario`
 --
 ALTER TABLE `tipo_prestatario`
-  MODIFY `ID_Tipo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `ubicacion`
 --
