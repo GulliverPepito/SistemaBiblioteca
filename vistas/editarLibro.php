@@ -52,28 +52,58 @@
                                                             <p>Titulo Original:</p>
                                                         </div>
                                                         <div class="col-md-6">
-                                                             <p>Titulo Original:</p>
+                                                             <p>Tema General:</p>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <p>Editorial:</p>
+                                                            <p class="noMostrar">Editorial:</p>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <p>Paginas:</p>
+                                                            <p class="noMostrar">Paginas:</p>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <p>Ubicacion:</p>
+                                                            <p class="noMostrar">Ubicacion:</p>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <p>Carrera:</p>
+                                                            <p class="noMostrar">Carrera:</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <p class="noMostrar">Año de Edicion:</p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p class="noMostrar">Lugar de Edicion:</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <p class="noMostrar">Volumen:</p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p class="noMostrar">Numero de Serie:</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <p class="noMostrar">Url:</p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p class="noMostrar">Tema Especifico:</p>
                                                         </div>
                                                     </div>
                                                     <div class="row justify-content-end">
                                                         <div class="col-md-3">
-                                                            <button type="button" class="btn btn-warning"><i class="fa fa-plus" aria-hidden="true"></i> Ver Mas</button>
+                                                            <button type="button" class="btn btn-primary" id="btnEditar"><i class="fa fa-cog" aria-hidden="true"></i> Editar</button>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <button type="button" class="btn btn-danger" id="btnEliminar"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</button>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <button type="button" class="btn btn-warning" id="btnVerMas"><i class="fa fa-plus" aria-hidden="true"></i> Ver Mas</button>
                                                         </div>
                                                     </div>
                                                 </div>
