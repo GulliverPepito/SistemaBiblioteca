@@ -25,21 +25,71 @@
 <body>
 	<header>
 		<div class="carga" id="carga">
-        	<p><img class="carIma" src="img/carga.svg"></p>
-        	<p><img class="logo" src="img/logo.png"></p>
+        	<p><img class="carIma" src="../img/carga.svg"></p>
+        	<p><img class="logo" src="../img/logo.png"></p>
     	</div>
 		<div class="cabecera">
 			<img src="../img/logo.png" alt="">
             <a style="text-align: right;" href="../index.php"><h2> < Regresar</h2></a>
         </div>
 	</header>
-
-	<section class="main">
-		<div class="col-md-12">
-    		<div class="card">
-    			
-    		</div>	
-    	</div>	
-	</section>
+	
+	<br>	
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-12">
+	    		<div style="padding: 5%;" class="card">
+	    			<div class="row">
+	    				<div class="col-md-12">
+	    					<form id="CamUsu">
+								<div class="row justify-content-center">
+				                    <div class="form-group col-md-4">
+				                        <h2 class="text-center"><i class="fa fa-user" aria-hidden="true"></i> Nombre de usuario</h2>
+				                        <input style="font-size: 18px;" type="text" class="form-control" id="NomUsu" value=<?php echo $_SESSION['user']['Usuario']; ?> required>
+				                    </div>
+				                </div>
+				                <div class="row justify-content-center">
+				                    <div class="form-group col-md-2">
+				                        <button type="submit" class="btn btn-danger btn-block btn-lg">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+				                    </div>
+				                </div>
+							</form>
+	    				</div>
+	    			</div>
+					<hr>
+					<div class="row">
+						<button type="button" class="btn btn-link" id="moCo"><i class="fa fa-key" aria-hidden="true"></i> Cambiar Contraseña</button>
+						<div style="background: #CACACA; display: none;" class="col-md-12" id="contra">
+							<form style="padding: 4%;" id="CamCon">
+								<div class="row justify-content-center">
+									<div class="col-md-4">
+										<div class="form-group">
+						                	<h4>Contraseña Actual</h4>
+						                    <input type="password" class="form-control" id="ConA" required>
+						                </div>
+										<div class="form-group">
+						                	<h4>Nueva Contraseña</h4>
+						                    <input type="password" class="form-control" id="ConN" required>
+						                </div>
+						                <div class="form-group">
+						                	<h4>Repetir Contraseña</h4>
+						                    <input type="password" class="form-control" id="ConR" required>
+						                </div>
+									</div> 
+					            </div>
+					            <div class="row justify-content-center">
+					                <div class="form-group col-md-2">
+					                    <button type="submit" class="btn btn-danger btn-block btn-lg">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+					                </div>
+					            </div>
+							</form>	
+			    		</div>
+					</div>
+	    		</div>	
+	    	</div>
+		</div>	
+	</div>
 </body>
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/perfil.js"></script>
 </html>
