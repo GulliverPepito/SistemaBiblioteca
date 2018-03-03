@@ -50,7 +50,7 @@
 				                </div>
 				                <div class="row justify-content-center">
 				                    <div class="form-group col-md-2">
-				                        <button type="submit" class="btn btn-danger btn-block btn-lg">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+				                        <button type="submit" class="btn btn-danger btn-block btn-lg" id="BGUsu" disabled>Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
 				                    </div>
 				                </div>
 							</form>
@@ -65,21 +65,30 @@
 									<div class="col-md-4">
 										<div class="form-group">
 						                	<h4>Contraseña Actual</h4>
-						                    <input type="password" class="form-control" id="ConA" required>
+						                    <input type="password" class="con form-control" id="ConA" required>
+						                    <div class="invalid-feedback">
+									          La contraseña actual es incorrecta
+									        </div>
 						                </div>
 										<div class="form-group">
 						                	<h4>Nueva Contraseña</h4>
-						                    <input type="password" class="form-control" id="ConN" required>
+						                    <input type="password" class="con Ncon form-control" id="ConN" required>
+						                    <div class="invalid-feedback">
+									          Haz coincidir las contraseñas
+									        </div>
 						                </div>
 						                <div class="form-group">
 						                	<h4>Repetir Contraseña</h4>
-						                    <input type="password" class="form-control" id="ConR" required>
+						                    <input type="password" class="con Ncon form-control" id="ConR" required>
+						                    <div class="invalid-feedback">
+									          Haz coincidir las contraseñas
+									        </div>
 						                </div>
 									</div> 
 					            </div>
 					            <div class="row justify-content-center">
 					                <div class="form-group col-md-2">
-					                    <button type="submit" class="btn btn-danger btn-block btn-lg">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+					                    <button type="submit" class="btn btn-danger btn-block btn-lg" id="BMCo" disabled>Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
 					                </div>
 					            </div>
 							</form>	
