@@ -63,10 +63,7 @@ $(document).ready(function() {
 	              	$("#carga").hide(0);
 	              	if(res!="123"){
 	              		alert(res);
-	              		$(".con").val("");
-	              		$("#BMCo").attr('disabled', true);
-	              		$(".Ncon").attr('class', 'con Ncon form-control');
-	              		$("#ConA").attr('class', 'con form-control');
+	              		location.reload();
 	              	}else{
 	              		$(".Ncon").attr('class', 'con Ncon form-control');
 	              		$("#ConA").attr('class', 'con form-control is-invalid');
