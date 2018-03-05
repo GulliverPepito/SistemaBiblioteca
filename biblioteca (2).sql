@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-03-2018 a las 19:18:35
+-- Tiempo de generación: 05-03-2018 a las 19:25:04
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.2.0
 
@@ -45,6 +45,17 @@ CREATE TABLE `areas` (
   `ID_Areas` int(11) NOT NULL,
   `Area` varchar(30) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `areas`
+--
+
+INSERT INTO `areas` (`ID_Areas`, `Area`) VALUES
+(1, 'Sistemas Computacionales'),
+(2, 'Industrial'),
+(3, 'Gestion Empresarial'),
+(4, 'Matematicas'),
+(5, 'Electromecanica');
 
 -- --------------------------------------------------------
 
@@ -102,7 +113,7 @@ CREATE TABLE `libros` (
 --
 
 INSERT INTO `libros` (`ID_Libro`, `ISBN`, `Codigo_Barras`, `Titulo`, `Autor`, `Titulo_Original`, `Anio_Edicion`, `Lugar_Edicion`, `Editorial`, `Paginas`, `Ubicacion_FK`, `Volumen`, `Num_Serie`, `Carrera_FK`, `URL`, `Tema_General_FK`, `Tema_Especifico`) VALUES
-(1, '322324343', '1232342', 'Codigo de Da Vinci', 'Dan Brown', 'Code Da vinci', 2014, 'California', 'Planeta', 300, 1, 3, '123232', 1, 'http://web.com', 0, 'Literatura');
+(1, '322324343', '1232342', 'Codigo de Da Vinci', 'Dan Brown', 'Code Da vinci', 2014, 'California', 'Planeta', 300, 1, 3, '123232', 1, 'http://web.com', 5, 'Literatura');
 
 -- --------------------------------------------------------
 
@@ -112,6 +123,7 @@ INSERT INTO `libros` (`ID_Libro`, `ISBN`, `Codigo_Barras`, `Titulo`, `Autor`, `T
 
 CREATE TABLE `libros_detalle` (
   `ID_Detalle` int(11) NOT NULL,
+  `ISNB` varchar(50) NOT NULL,
   `Codigo_Barras` varchar(20) DEFAULT NULL,
   `Libros_FK` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -220,6 +232,16 @@ CREATE TABLE `ubicacion` (
   `Area_FK` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `ubicacion`
+--
+
+INSERT INTO `ubicacion` (`ID_Ubicacion`, `Fila`, `Area_FK`) VALUES
+(1, '1', 1),
+(2, '2', 3),
+(3, '3', 4),
+(4, '4', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -325,7 +347,7 @@ ALTER TABLE `adeudos`
 -- AUTO_INCREMENT de la tabla `areas`
 --
 ALTER TABLE `areas`
-  MODIFY `ID_Areas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Areas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `carrera`
@@ -373,7 +395,7 @@ ALTER TABLE `tipo_prestatario`
 -- AUTO_INCREMENT de la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
-  MODIFY `ID_Ubicacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Ubicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

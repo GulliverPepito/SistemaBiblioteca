@@ -3,7 +3,9 @@ $('#registrarLibro').click(function() {
     $('#agregarLibro').show();
 });
 $('#btnAgregarLibro').click(function() {
-    var datos = $('#formLibro').serializeArray();
+    var form = $('#formLibro').serializeArray();
+    var tag = { tag: 'agregar' };
+    var datos = form.concat(tag);
     $.ajax({
         url: 'php/agregarLibro.php',
         type: 'POST',
@@ -40,3 +42,16 @@ $('#btnAgregarLibro').click(function() {
         }
     });
 });
+
+function ubicacion() {
+    $.ajax({
+        url: 'php/agregarLibro.php',
+        type: 'POST',
+        data: { tag: 'ubicacion' },
+        success: function(response) {
+            $('#ubicacion').append(response);
+        }
+
+    });
+}
+ubicacion();

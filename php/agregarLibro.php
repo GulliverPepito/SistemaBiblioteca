@@ -1,6 +1,6 @@
 <?php
     include 'conexion.php';
-    if(isset($_POST)){
+    if(isset($_POST) && $_POST['tag']=='agregar'){
         $isbn= mysqli_real_escape_string($con, $_POST['isbn']);
         $codigoBarras = mysqli_real_escape_string($con, $_POST['codigoBarras']);
         $titulo = mysqli_real_escape_string($con, $_POST['titulo']);
@@ -22,6 +22,16 @@
             echo 1;
         }else{
             echo 0;
+        }
+    }
+    if(isset($_POST) && $_POST['tag']=='ubicacion'){
+        $sql = "SELECT * FROM ubicacion,areas WHERE Area_FK=ID_Areas";
+        $select = $con->query($sql);
+        if($select->num_rows > 0){
+            echo "<option value='seleccione'>Seleccione...</option>";
+            while($row = $select->fetch_assoc()){
+                echo "<option value='$row[ID_Ubicacion]'>$row[Area]</option>";
+            }
         }
     }
 ?>

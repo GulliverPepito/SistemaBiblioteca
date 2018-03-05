@@ -52,7 +52,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="ubicacion">Ubicacion</label>
-                                        <input type="text" class="form-control" name="ubicacion" id="ubicacion" require>
+                                        <select name="ubicacion" id="ubicacion" class="form-control">
+                                        </select>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="volumen">Volumen</label>
