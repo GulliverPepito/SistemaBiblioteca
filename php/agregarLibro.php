@@ -17,7 +17,7 @@
         $url = mysqli_real_escape_string($con, $_POST['url']);
         $temaEspecifico = mysqli_real_escape_string($con, $_POST['temaEspecifico']);
         $temaGeneral = mysqli_real_escape_string($con, $_POST['temaGeneral']);
-        $sql = "INSERT INTO libros VALUES(null,'$isbn','$codigoBarras','$titulo','$autor','$tituloOriginal',$anioEdicion,'$lugarEdicion','$editorial',$paginas,$ubicacion,$volumen,'$numSerie',$carrera,'$url','$temaEspecifico','$temaGeneral')";
+        $sql = "INSERT INTO libros VALUES(null,'$isbn','$codigoBarras','$titulo','$autor','$tituloOriginal',$anioEdicion,'$lugarEdicion','$editorial',$paginas,$ubicacion,$volumen,'$numSerie',$carrera,'$url','$temaGeneral','$temaEspecifico')";
         if($con->query($sql)==TRUE){
             echo 1;
         }else{
@@ -25,13 +25,33 @@
         }
     }
     if(isset($_POST) && $_POST['tag']=='ubicacion'){
-        $sql = "SELECT * FROM ubicacion,areas WHERE Area_FK=ID_Areas";
+        $sql = "SELECT * FROM ubicacion";
         $select = $con->query($sql);
         if($select->num_rows > 0){
             echo "<option value='seleccione'>Seleccione...</option>";
             while($row = $select->fetch_assoc()){
-                echo "<option value='$row[ID_Ubicacion]'>$row[Area]</option>";
+                echo "<option value='$row[ID_Ubicacion]'>$row[Fila]</option>";
             }
+        }
+    }
+    if(isset($_POST) && $_POST['tag']=='carrera'){
+        $sql = "SELECT * FROM carrera";
+        $select = $con->query($sql);
+        if($select->num_rows > 0){
+            echo "<option value='seleccione'>Seleccione...</option>";
+            while($row = $select->fetch_assoc()){
+                echo "<option value='$row[ID_Carrera]'>$row[Carrera]</option>";
+            } 
+        }
+    }
+    if(isset($_POST) && $_POST['tag']=='temaGeneral'){
+        $sql = "SELECT * FROM tema_general";
+        $select = $con->query($sql);
+        if($select->num_rows > 0){
+            echo "<option value='seleccione'>Seleccione...</option>";
+            while($row = $select->fetch_assoc()){
+                echo "<option value='$row[ID_Tema_Gral]'>$row[Tema]</option>";
+            } 
         }
     }
 ?>

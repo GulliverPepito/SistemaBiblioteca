@@ -1,7 +1,7 @@
 <?php
     include 'conexion.php';
     if(isset($_POST) && $_POST['tag']=="mostrarDatos"){
-        $sql = "SELECT * FROM libros";
+        $sql = "SELECT * FROM libros,ubicacion,carrera,tema_general WHERE Ubicacion_FK=ID_Ubicacion AND Carrera_FK=ID_Carrera AND Tema_General_FK=ID_Tema_Gral";
         $result = $con->query($sql);
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
@@ -13,66 +13,66 @@
                 <div class='libro'>
                 <div class='row'>
                     <div class='col-md-6'>
-                        <p>ISNB:<span>".$row['ISBN']."</span></p>
+                        <p>ISNB: <span>".$row['ISBN']."</span></p>
                     </div>
                     <div class='col-md-6'>
-                        <p>Codigo Barras:<span>".$row['Codigo_Barras']."</span></p>
-                    </div>
-                </div>
-                <div class='row'>
-                    <div class='col-md-6'>
-                        <p>Titulo:<span>".$row['Titulo']."</span></p>
-                    </div>
-                    <div class='col-md-6'>
-                        <p>Autor:<span>".$row['Autor']."</span></p>
+                        <p>Codigo Barras: <span>".$row['Codigo_Barras']."</span></p>
                     </div>
                 </div>
                 <div class='row'>
                     <div class='col-md-6'>
-                        <p>Titulo Original:<span>".$row['Titulo_Original']."</span></p>
+                        <p>Titulo: <span>".$row['Titulo']."</span></p>
                     </div>
                     <div class='col-md-6'>
-                         <p>Tema General:<span>".$row['Tema_General_FK']."</span></p>
-                    </div>
-                </div>
-                <div class='row'>
-                    <div class='col-md-6'>
-                        <p class='noMostrar'>Editorial:<span>".$row['Editorial']."</span></p>
-                    </div>
-                    <div class='col-md-6'>
-                        <p class='noMostrar'>Paginas:<span>".$row['Paginas']."</span></p>
+                        <p>Autor: <span>".$row['Autor']."</span></p>
                     </div>
                 </div>
                 <div class='row'>
                     <div class='col-md-6'>
-                        <p class='noMostrar'>Ubicacion:<span>".$row['Ubicacion_FK']."</span></p>
+                        <p>Titulo Original: <span>".$row['Titulo_Original']."</span></p>
                     </div>
                     <div class='col-md-6'>
-                        <p class='noMostrar'>Carrera:<span>".$row['Carrera_FK']."</span></p>
-                    </div>
-                </div>
-                <div class='row'>
-                    <div class='col-md-6'>
-                        <p class='noMostrar'>Año de Edicion:<span>".$row['Anio_Edicion']."</span></p>
-                    </div>
-                    <div class='col-md-6'>
-                        <p class='noMostrar'>Lugar de Edicion:<span>".$row['Lugar_Edicion']."</span></p>
+                         <p>Tema General: <span class='no'>$row[ID_Tema_Gral]</span> <span>".$row['Tema']."</span></p>
                     </div>
                 </div>
                 <div class='row'>
                     <div class='col-md-6'>
-                        <p class='noMostrar'>Volumen:<span>".$row['Volumen']."</span></p>
+                        <p class='noMostrar'>Editorial: <span>".$row['Editorial']."</span></p>
                     </div>
                     <div class='col-md-6'>
-                        <p class='noMostrar'>Numero de Serie:<span>".$row['Num_Serie']."</span></p>
+                        <p class='noMostrar'>Paginas: <span>".$row['Paginas']."</span></p>
                     </div>
                 </div>
                 <div class='row'>
                     <div class='col-md-6'>
-                        <p class='noMostrar'>Url:<span>".$row['URL']."</span></p>
+                        <p class='noMostrar'>Ubicacion: <span>".$row['Fila']."</span></p>
                     </div>
                     <div class='col-md-6'>
-                        <p class='noMostrar'>Tema Especifico:<span>".$row['Tema_Especifico']."</span></p>
+                        <p class='noMostrar'>Carrera: <span class='no'>$row[ID_Carrera]</span> <span>".$row['Carrera']."</span></p>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <p class='noMostrar'>Año de Edicion: <span>".$row['Anio_Edicion']."</span></p>
+                    </div>
+                    <div class='col-md-6'>
+                        <p class='noMostrar'>Lugar de Edicion: <span>".$row['Lugar_Edicion']."</span></p>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <p class='noMostrar'>Volumen: <span>".$row['Volumen']."</span></p>
+                    </div>
+                    <div class='col-md-6'>
+                        <p class='noMostrar'>Numero de Serie: <span>".$row['Num_Serie']."</span></p>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-6'>
+                        <p class='noMostrar'>Url: <span>".$row['URL']."</span></p>
+                    </div>
+                    <div class='col-md-6'>
+                        <p class='noMostrar'>Tema Especifico: <span>".$row['Tema_Especifico']."</span></p>
                     </div>
                 </div>
         
@@ -97,7 +97,7 @@
                         <button type='button' class='btn btn-info' id='agregarMas'><i class='fa fa-plus' aria-hidden='true'></i> Agregar</button>
                     </div>
                     <div class='col-md-3'>
-                        <button type='button' class='btn btn-primary' id='btnEditar'><i class='fa fa-cog' aria-hidden='true'></i> Editar</button>
+                        <button type='button' class='btn btn-primary' id='btnEditar' data-toggle='modal' data-target='#modal'><i class='fa fa-cog' aria-hidden='true'></i> Editar</button>
                     </div>
                     <div class='col-md-3'>
                         <button type='button' class='btn btn-danger' id='btnEliminar'><i class='fa fa-trash' aria-hidden='true'></i> Eliminar</button>

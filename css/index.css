@@ -148,6 +148,10 @@ button {
     display: none;
 }
 
+.no {
+    display: none;
+}
+
 #agregarMasModificar {
     margin-top: 25px;
 }

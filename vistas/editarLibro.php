@@ -1,3 +1,4 @@
+<div class="col-md-12">
 <div class="card">
     <div class="card-body">
     <div class="row">
@@ -136,5 +137,113 @@
                         </div>
                     </div>
                     </div>
-                </div>    
+                </div>  
+</div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="ModalMoUsu" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 style="width: 90%;" class="modal-title" id="ModalMoUsu">Modificar Libro</h3>
+            <button style="width: 10%;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <form action="" id="formLibro">
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label for="isbn">ISBN</label>
+                                        <input type="text" class="form-control" name="isbnEditar" id="isbnEditar" require>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="codigoBarras">Codigo de Barras</label>
+                                        <input type="text" class="form-control" name="codigoBarrasEditar" id="codigoBarrasEditar" require>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="titulo">Titulo</label>
+                                        <input type="text" class="form-control" name="titulo" id="tituloEditar" require>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="autor">Autor</label>
+                                        <input type="text" class="form-control" name="autor" id="autorEditar" require>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="tituloOriginal">Titulo Original</label>
+                                        <input type="text" class="form-control" name="tituloOriginal" id="tituloOriginalEditar" require>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="anioEdicion">Año de Edicion</label>
+                                        <input type="number" class="form-control" name="anioEdicion" id="anioEdicionEditar" require>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="lugarEdicion">Lugar de Edicion</label>
+                                        <input type="text" class="form-control" name="lugarEdicion" id="lugarEdicionEditar" require>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="editorial">Editorial</label>
+                                        <input type="text" class="form-control" name="editorial" id="editorialEditar" require>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="paginas">Paginas</label>
+                                        <input type="number" class="form-control" name="paginas" id="paginasEditar" require>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="ubicacion">Ubicacion</label>
+                                        <select name="ubicacion" id="ubicacionEditar" class="form-control">
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="volumen">Volumen</label>
+                                        <input type="number" class="form-control" name="volumen" id="volumenEditar" require>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="numSerie">Numero de Serie</label>
+                                        <input type="text" class="form-control" name="numSerie" id="numSerieEditar" require>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="carrera">Carrera</label>
+                                        <select name="carrera" id="carreraEditar" class="form-control">
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="url">Url</label>
+                                        <input type="url" class="form-control" name="url" id="urlEditar">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="temaGeneral">Tema General</label>
+                                        <select name="temaGeneral" id="temaGeneralEditar" class="form-control">
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="temaEspecifico">Tema Especifico</label>
+                                        <input type="text" class="form-control" name="temaEspecifico" id="temaEspecificoEditar">
+                                    </div>
+                                </div>
+                            </form>
+          <div class="modal-footer text-left">
+            <button style="width: 10%;" type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+            <button style="width: 10%;" type="submit" class="btn btn-danger" id="GuMUsu" disabled>Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>

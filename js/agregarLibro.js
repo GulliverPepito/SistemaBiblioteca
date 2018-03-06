@@ -2,10 +2,9 @@ $('#agregarLibro').hide();
 $('#registrarLibro').click(function() {
     $('#agregarLibro').show();
 });
-$('#btnAgregarLibro').click(function() {
-    var form = $('#formLibro').serializeArray();
-    var tag = { tag: 'agregar' };
-    var datos = form.concat(tag);
+$('#formLibro').submit(function(evt) {
+    evt.preventDefault();
+    var datos = $('#formLibro').serializeArray();
     $.ajax({
         url: 'php/agregarLibro.php',
         type: 'POST',
@@ -16,7 +15,6 @@ $('#btnAgregarLibro').click(function() {
         success: function(response) {
             if (response == 1) {
                 alert('Agregado Correctamente');
-                $('#idLibro').val('');
                 $('#isbn').val('');
                 $('#codigoBarras').val('');
                 $('#titulo').val('');
@@ -50,8 +48,35 @@ function ubicacion() {
         data: { tag: 'ubicacion' },
         success: function(response) {
             $('#ubicacion').append(response);
+            $('#ubicacionEditar').append(response);
         }
 
     });
 }
+
+function carrera() {
+    $.ajax({
+        url: 'php/agregarLibro.php',
+        type: 'POST',
+        data: { tag: 'carrera' },
+        success: function(response) {
+            $('#carrera').append(response);
+            $('#carreraEditar').append(response);
+        }
+    });
+}
+
+function tema() {
+    $.ajax({
+        url: 'php/agregarLibro.php',
+        type: 'POST',
+        data: { tag: 'temaGeneral' },
+        success: function(response) {
+            $('#temaGeneral').append(response);
+            $('#temaGeneralEditar').append(response);
+        }
+    });
+}
 ubicacion();
+carrera();
+tema();

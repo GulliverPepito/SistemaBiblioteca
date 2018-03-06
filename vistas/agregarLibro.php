@@ -6,47 +6,47 @@
                                 <div class="row">
                                     <div class="form-group col-md-12">
                                         <label for="isbn">ISBN</label>
-                                        <input type="text" class="form-control" name="isbn" id="isbn" require>
+                                        <input type="text" class="form-control" name="isbn" id="isbn" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="codigoBarras">Codigo de Barras</label>
-                                        <input type="text" class="form-control" name="codigoBarras" id="codigoBarras" require>
+                                        <input type="text" class="form-control" name="codigoBarras" id="codigoBarras" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="titulo">Titulo</label>
-                                        <input type="text" class="form-control" name="titulo" id="titulo" require>
+                                        <input type="text" class="form-control" name="titulo" id="titulo" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="autor">Autor</label>
-                                        <input type="text" class="form-control" name="autor" id="autor" require>
+                                        <input type="text" class="form-control" name="autor" id="autor" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="tituloOriginal">Titulo Original</label>
-                                        <input type="text" class="form-control" name="tituloOriginal" id="tituloOrignal" require>
+                                        <input type="text" class="form-control" name="tituloOriginal" id="tituloOriginal" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="anioEdicion">Año de Edicion</label>
-                                        <input type="number" class="form-control" name="anioEdicion" id="anioEdicion" require>
+                                        <input type="number" class="form-control" name="anioEdicion" id="anioEdicion" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="lugarEdicion">Lugar de Edicion</label>
-                                        <input type="text" class="form-control" name="lugarEdicion" id="lugarEdicion" require>
+                                        <input type="text" class="form-control" name="lugarEdicion" id="lugarEdicion" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="editorial">Editorial</label>
-                                        <input type="text" class="form-control" name="editorial" id="editorial" require>
+                                        <input type="text" class="form-control" name="editorial" id="editorial" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="paginas">Paginas</label>
-                                        <input type="number" class="form-control" name="paginas" id="paginas" require>
+                                        <input type="number" class="form-control" name="paginas" id="paginas" required>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -57,24 +57,18 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="volumen">Volumen</label>
-                                        <input type="number" class="form-control" name="volumen" id="volumen" require>
+                                        <input type="number" class="form-control" name="volumen" id="volumen" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="numSerie">Numero de Serie</label>
-                                        <input type="text" class="form-control" name="numSerie" id="numSerie" require>
+                                        <input type="text" class="form-control" name="numSerie" id="numSerie" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="carrera">Carrera</label>
                                         <select name="carrera" id="carrera" class="form-control">
-                                            <option value="seleccione">Seleccione...</option>
-                                            <option value="1">Ing. Sistemas Computacionales</option>
-                                            <option value="2">Ing. Gestion Empresarial</option>
-                                            <option value="3">Ing. Industrial</option>
-                                            <option value="4">Ing. Industrias Alimentarias</option>
-                                            <option value="5">Ing. Electromecanica</option>
-                                            <option value="6">Ing. Ambiental</option>
+                                            
                                         </select>
                                     </div>
                                 </div>
@@ -86,13 +80,7 @@
                                     <div class="form-group col-md-6">
                                         <label for="temaGeneral">Tema General</label>
                                         <select name="temaGeneral" id="temaGeneral" class="form-control">
-                                            <option value="seleccione">Seleccione...</option>
-                                            <option value="1">Fisica</option>
-                                            <option value="2">Quimica</option>
-                                            <option value="3">Programacion</option>
-                                            <option value="4">Matematicas</option>
-                                            <option value="5">Literatura</option>
-                                            <option value="6">Ingles</option>
+
                                         </select>
                                     </div>
                                 </div>
@@ -101,10 +89,13 @@
                                         <label for="temaEspecifico">Tema Especifico</label>
                                         <input type="text" class="form-control" name="temaEspecifico" id="temaEspecifico">
                                     </div>
+                                    <div class="col-md-6">
+                                    <input type="text" name="tag" value="agregar" class="no">
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <button type="button" class="btn btn-success btn-lg" id="btnAgregarLibro"><i class="fa fa-floppy-o" aria-hidden="true" ></i> Agregar Libro</button>
+                                        <button type="submit" class="btn btn-success btn-lg" id="btnAgregarLibro"><i class="fa fa-floppy-o" aria-hidden="true" ></i> Agregar Libro</button>
                                     </div>
                                 </div>
                             </form>
