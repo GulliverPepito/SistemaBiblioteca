@@ -42,9 +42,11 @@
                    <?php require "vistas/verUsu.php"; ?>
                 </div>
             </div>
-
             <div class="row mostrar" id="TablaLibros">
                 <?php require "vistas/editarLibro.php";?>
+            </div>
+            <div class="row mostrar" id="consul">
+                <?php require "vistas/consultas.php";?>
             </div>
         </div>
     </section>

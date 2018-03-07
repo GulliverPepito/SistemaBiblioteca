@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-03-2018 a las 19:25:04
--- Versión del servidor: 10.1.29-MariaDB
--- Versión de PHP: 7.2.0
+-- Tiempo de generación: 07-03-2018 a las 17:28:17
+-- Versión del servidor: 10.1.25-MariaDB
+-- Versión de PHP: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -90,8 +90,6 @@ INSERT INTO `carrera` (`ID_Carrera`, `Carrera`, `Codigo`) VALUES
 
 CREATE TABLE `libros` (
   `ID_Libro` int(11) NOT NULL,
-  `ISBN` varchar(20) DEFAULT NULL,
-  `Codigo_Barras` varchar(20) DEFAULT NULL,
   `Titulo` varchar(100) DEFAULT NULL,
   `Autor` varchar(100) DEFAULT NULL,
   `Titulo_Original` varchar(100) DEFAULT NULL,
@@ -112,8 +110,8 @@ CREATE TABLE `libros` (
 -- Volcado de datos para la tabla `libros`
 --
 
-INSERT INTO `libros` (`ID_Libro`, `ISBN`, `Codigo_Barras`, `Titulo`, `Autor`, `Titulo_Original`, `Anio_Edicion`, `Lugar_Edicion`, `Editorial`, `Paginas`, `Ubicacion_FK`, `Volumen`, `Num_Serie`, `Carrera_FK`, `URL`, `Tema_General_FK`, `Tema_Especifico`) VALUES
-(1, '322324343', '1232342', 'Codigo de Da Vinci', 'Dan Brown', 'Code Da vinci', 2014, 'California', 'Planeta', 300, 1, 3, '123232', 1, 'http://web.com', 5, 'Literatura');
+INSERT INTO `libros` (`ID_Libro`, `Titulo`, `Autor`, `Titulo_Original`, `Anio_Edicion`, `Lugar_Edicion`, `Editorial`, `Paginas`, `Ubicacion_FK`, `Volumen`, `Num_Serie`, `Carrera_FK`, `URL`, `Tema_General_FK`, `Tema_Especifico`) VALUES
+(1, 'Codigo de Da Vinci', 'Dan Brown', 'Code Da vinci', 2014, 'California', 'Planeta', 300, 1, 3, '123232', 1, 'http://web.com', 5, 'Literatura');
 
 -- --------------------------------------------------------
 
@@ -139,9 +137,21 @@ CREATE TABLE `prestamos` (
   `Fecha_Inicio` date DEFAULT NULL,
   `Fecha_Fin` date DEFAULT NULL,
   `Prestatario_FK` int(11) DEFAULT NULL,
-  `Libro_FK` int(11) DEFAULT NULL,
-  `Vencido` tinyint(1) DEFAULT NULL
+  `Vencido` tinyint(1) DEFAULT NULL,
+  `Status` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `prestamos_detalle`
+--
+
+CREATE TABLE `prestamos_detalle` (
+  `ID_Prestamo_Detalle` int(11) NOT NULL,
+  `Libro_FK` int(11) NOT NULL,
+  `Prestamo_FK` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -270,7 +280,8 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Usuario`, `Contrasenia`, `Tipo`) VALUES
 -- Indices de la tabla `adeudos`
 --
 ALTER TABLE `adeudos`
-  ADD PRIMARY KEY (`ID_Adeudos`);
+  ADD PRIMARY KEY (`ID_Adeudos`),
+  ADD KEY `adeudos_ibfk_1` (`Prestamos_FK`);
 
 --
 -- Indices de la tabla `areas`
@@ -288,25 +299,37 @@ ALTER TABLE `carrera`
 -- Indices de la tabla `libros`
 --
 ALTER TABLE `libros`
-  ADD PRIMARY KEY (`ID_Libro`);
+  ADD PRIMARY KEY (`ID_Libro`),
+  ADD KEY `libros_ibfk_1` (`Ubicacion_FK`),
+  ADD KEY `libros_ibfk_2` (`Carrera_FK`),
+  ADD KEY `libros_ibfk_3` (`Tema_General_FK`);
 
 --
 -- Indices de la tabla `libros_detalle`
 --
 ALTER TABLE `libros_detalle`
-  ADD PRIMARY KEY (`ID_Detalle`);
+  ADD PRIMARY KEY (`ID_Detalle`),
+  ADD KEY `libros_detalle_ibfk_1` (`Libros_FK`);
 
 --
 -- Indices de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  ADD PRIMARY KEY (`ID_Prestamo`);
+  ADD PRIMARY KEY (`ID_Prestamo`),
+  ADD KEY `prestamos_ibfk_1` (`Prestatario_FK`);
+
+--
+-- Indices de la tabla `prestamos_detalle`
+--
+ALTER TABLE `prestamos_detalle`
+  ADD PRIMARY KEY (`ID_Prestamo_Detalle`);
 
 --
 -- Indices de la tabla `prestatario`
 --
 ALTER TABLE `prestatario`
-  ADD PRIMARY KEY (`ID_Prestatario`);
+  ADD PRIMARY KEY (`ID_Prestatario`),
+  ADD KEY `prestatario_ibfk_1` (`Tipo_FK`);
 
 --
 -- Indices de la tabla `tema_general`
@@ -324,7 +347,8 @@ ALTER TABLE `tipo_prestatario`
 -- Indices de la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
-  ADD PRIMARY KEY (`ID_Ubicacion`);
+  ADD PRIMARY KEY (`ID_Ubicacion`),
+  ADD KEY `ubicacion_ibfk_1` (`Area_FK`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -342,67 +366,61 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `adeudos`
   MODIFY `ID_Adeudos` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `areas`
 --
 ALTER TABLE `areas`
   MODIFY `ID_Areas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
   MODIFY `ID_Carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
   MODIFY `ID_Libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT de la tabla `libros_detalle`
 --
 ALTER TABLE `libros_detalle`
   MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
   MODIFY `ID_Prestamo` int(11) NOT NULL AUTO_INCREMENT;
-
+--
+-- AUTO_INCREMENT de la tabla `prestamos_detalle`
+--
+ALTER TABLE `prestamos_detalle`
+  MODIFY `ID_Prestamo_Detalle` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `prestatario`
 --
 ALTER TABLE `prestatario`
   MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT de la tabla `tema_general`
 --
 ALTER TABLE `tema_general`
   MODIFY `ID_Tema_Gral` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT de la tabla `tipo_prestatario`
 --
 ALTER TABLE `tipo_prestatario`
   MODIFY `ID_Tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT de la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
   MODIFY `ID_Ubicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

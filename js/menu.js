@@ -56,4 +56,9 @@ $(document).ready(function() {
         $(".mostrar").hide();
         $("#VerUsu").show();
     });
+
+    $(document).on("click", "#consultas", function() {
+        $(".mostrar").hide();
+        $("#consul").show();
+    });
 });
