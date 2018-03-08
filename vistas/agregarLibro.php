@@ -5,16 +5,6 @@
                             <form action="" id="formLibro">
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <label for="isbn">ISBN</label>
-                                        <input type="text" class="form-control" name="isbn" id="isbn" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label for="codigoBarras">Codigo de Barras</label>
-                                        <input type="text" class="form-control" name="codigoBarras" id="codigoBarras" required>
-                                    </div>
-                                    <div class="form-group col-md-6">
                                         <label for="titulo">Titulo</label>
                                         <input type="text" class="form-control" name="titulo" id="titulo" required>
                                     </div>

@@ -13,14 +13,6 @@
                 <div class='libro'>
                 <div class='row'>
                     <div class='col-md-6'>
-                        <p>ISNB: <span>".$row['ISBN']."</span></p>
-                    </div>
-                    <div class='col-md-6'>
-                        <p>Codigo Barras: <span>".$row['Codigo_Barras']."</span></p>
-                    </div>
-                </div>
-                <div class='row'>
-                    <div class='col-md-6'>
                         <p>Titulo: <span>".$row['Titulo']."</span></p>
                     </div>
                     <div class='col-md-6'>
