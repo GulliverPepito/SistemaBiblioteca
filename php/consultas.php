@@ -6,7 +6,7 @@
 		if($res=$con->query($sql)){
 		    if ($res->num_rows > 0) {
 				while($row = $res->fetch_assoc()) {
-					echo "<tr><td>$row[ID_Detalle]<td><td>$row[ISBN]</td><td>$row[Codigo_Barras]</td><td>$row[Titulo]</td><td>$row[Autor]</td><td>$row[Tema_Especifico]</td><td>Fila:$row[Fila] Area:$row[Area]</td></tr>";
+					echo "<tr><td>$row[ID_Detalle]</td><td>$row[ISBN]</td><td>$row[Codigo_Barras]</td><td>$row[Titulo]</td><td>$row[Autor]</td><td>$row[Tema_Especifico]</td><td>Fila:$row[Fila] Area:$row[Area]</td><td></td></tr>";
 				}
 			}else {
 				echo "0 results";
