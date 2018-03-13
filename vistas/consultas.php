@@ -3,7 +3,7 @@
         <div class="card-body">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                <input class="form-control form-control-lg" type="text" id="BusUsu" placeholder="Buscar ususarios">
+                <input class="form-control form-control-lg" type="text" id="BusCon" placeholder="Buscar ususarios">
             </div>
             <br>
             <div class="row">
@@ -22,7 +22,24 @@
                     </label>  
                 </div>
                 <div class="col-md-12">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam amet officiis excepturi ipsam, maiores impedit quod reiciendis provident ad dolores, cupiditate, aspernatur alias molestiae quisquam earum quas. Maxime, incidunt mollitia.
+                    <div id="TaCon" class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>ISBN</th>
+                                    <th>Código de barras</th>
+                                    <th>Titulo</th>
+                                    <th>Autor</th>
+                                    <th>Tema</th>
+                                    <th>Ubicación</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="verConsu">
+
+                            </tbody>
+                        </table>
                 </div>
             </div>        
         </div>
