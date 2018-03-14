@@ -178,7 +178,7 @@
             while($row = $result->fetch_assoc()){
                 echo "<tr>
                         <td>$row[ID_Detalle]</td>
-                        <td>$row[ISNB]</td>
+                        <td>$row[ISBN]</td>
                         <td>$row[Codigo_Barras]</td>
                      </tr>";
             }

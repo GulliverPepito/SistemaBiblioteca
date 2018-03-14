@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-03-2018 a las 19:59:44
--- Versión del servidor: 10.1.29-MariaDB
--- Versión de PHP: 7.2.0
+-- Tiempo de generación: 14-03-2018 a las 19:08:21
+-- Versión del servidor: 10.1.25-MariaDB
+-- Versión de PHP: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -106,6 +106,13 @@ CREATE TABLE `libros` (
   `Tema_Especifico` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `libros`
+--
+
+INSERT INTO `libros` (`ID_Libro`, `Titulo`, `Autor`, `Titulo_Original`, `Anio_Edicion`, `Lugar_Edicion`, `Editorial`, `Paginas`, `Ubicacion_FK`, `Volumen`, `Num_Serie`, `Carrera_FK`, `URL`, `Tema_General_FK`, `Tema_Especifico`) VALUES
+(1, 'Caballo de Troya', 'J. J. BenÃ­tez', 'Caballo de Troya', 1987, 'EspaÃ±a', 'Panama', 511, 1, 0, 'N/A', 7, 'http://www.alv.com', 5, 'Ciencia Ficcion');
+
 -- --------------------------------------------------------
 
 --
@@ -114,10 +121,17 @@ CREATE TABLE `libros` (
 
 CREATE TABLE `libros_detalle` (
   `ID_Detalle` int(11) NOT NULL,
-  `ISNB` varchar(50) NOT NULL,
+  `ISBN` varchar(50) NOT NULL,
   `Codigo_Barras` varchar(20) DEFAULT NULL,
   `Libros_FK` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `libros_detalle`
+--
+
+INSERT INTO `libros_detalle` (`ID_Detalle`, `ISBN`, `Codigo_Barras`, `Libros_FK`) VALUES
+(1, 'sdfghj2345', '23456345', 1);
 
 -- --------------------------------------------------------
 
@@ -292,6 +306,8 @@ ALTER TABLE `libros`
 --
 ALTER TABLE `libros_detalle`
   ADD PRIMARY KEY (`ID_Detalle`),
+  ADD UNIQUE KEY `ISBN` (`ISBN`),
+  ADD UNIQUE KEY `Codigo_Barras` (`Codigo_Barras`),
   ADD KEY `Libros_FK` (`Libros_FK`);
 
 --
@@ -351,73 +367,61 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `adeudos`
   MODIFY `ID_Adeudos` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `areas`
 --
 ALTER TABLE `areas`
   MODIFY `ID_Areas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
   MODIFY `ID_Carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `ID_Libro` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `ID_Libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `libros_detalle`
 --
 ALTER TABLE `libros_detalle`
-  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
   MODIFY `ID_Prestamo` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `prestamos_detalle`
 --
 ALTER TABLE `prestamos_detalle`
   MODIFY `ID_Prestamo_Detalle` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `prestatario`
 --
 ALTER TABLE `prestatario`
   MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `tema_general`
 --
 ALTER TABLE `tema_general`
   MODIFY `ID_Tema_Gral` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT de la tabla `tipo_prestatario`
 --
 ALTER TABLE `tipo_prestatario`
   MODIFY `ID_Tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT de la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
   MODIFY `ID_Ubicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- Restricciones para tablas volcadas
 --
