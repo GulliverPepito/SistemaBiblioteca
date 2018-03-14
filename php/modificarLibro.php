@@ -12,6 +12,11 @@
                      <div class='card-body'>
                 <div class='libro'>
                 <div class='row'>
+                    <div class ='col-md-6'>
+                        <p>ID: <span>$row[ID_Libro]</span></p>
+                    </div>
+                </div>
+                <div class='row'>
                     <div class='col-md-6'>
                         <p>Titulo: <span>".$row['Titulo']."</span></p>
                     </div>
@@ -67,7 +72,24 @@
                         <p class='noMostrar'>Tema Especifico: <span>".$row['Tema_Especifico']."</span></p>
                     </div>
                 </div>
-        
+                <div class='row'>
+                    <div class='col-md-12'>
+                        <div class='detalle table-responsive noMostrar'>
+                        <table class='table table-hover'>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>ISNB</th>
+                                    <th>CodigoBarras</th>
+                                </tr>
+                            </thead>
+                            <tbody id='detalleLibro'>
+                    
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
                 <form action='' id='libroAgregarMas'>
                         <div class='row'>
                             <div class='form-group col-md-5 agregar'>
@@ -82,7 +104,6 @@
                                 <button type='button' class='btn btn-primary' id='agregarMasModificar'><i class='fa fa-save'></i> Agregar</button>
                             </div>
                         </div>
-                        
                 </form>
                 <div class='row'>
                     <div class='col-md-3'>
@@ -107,21 +128,60 @@
         }
     }
     if(isset($_POST) && $_POST['tag']=='actualizar'){
-        $isbn= mysqli_real_escape_string($con, $_POST['isbn']);
-        $codigoBarras = mysqli_real_escape_string($con, $_POST['codigoBarras']);
-        $titulo = mysqli_real_escape_string($con, $_POST['titulo']);
-        $autor = mysqli_real_escape_string($con, $_POST['autor']);
-        $tituloOriginal = mysqli_real_escape_string($con, $_POST['tituloOriginal']);
-        $anioEdicion = mysqli_real_escape_string($con, $_POST['anioEdicion']);
-        $lugarEdicion = mysqli_real_escape_string($con, $_POST['lugarEdicion']);
-        $editorial = mysqli_real_escape_string($con, $_POST['editorial']);
-        $paginas = mysqli_real_escape_string($con, $_POST['paginas']);
-        $ubicacion = mysqli_real_escape_string($con, $_POST['ubicacion']);
-        $volumen = mysqli_real_escape_string($con, $_POST['volumen']);
-        $numSerie = mysqli_real_escape_string($con, $_POST['numSerie']);
-        $carrera = mysqli_real_escape_string($con, $_POST['carrera']);
-        $url = mysqli_real_escape_string($con, $_POST['url']);
-        $temaEspecifico = mysqli_real_escape_string($con, $_POST['temaEspecifico']);
-        $temaGeneral = mysqli_real_escape_string($con, $_POST['temaGeneral']);
+        $id = mysqli_real_escape_string($con, $_POST['idEditar']);
+        $titulo = mysqli_real_escape_string($con, $_POST['tituloEditar']);
+        $autor = mysqli_real_escape_string($con, $_POST['autorEditar']);
+        $tituloOriginal = mysqli_real_escape_string($con, $_POST['tituloOriginalEditar']);
+        $anioEdicion = mysqli_real_escape_string($con, $_POST['anioEdicionEditar']);
+        $lugarEdicion = mysqli_real_escape_string($con, $_POST['lugarEdicionEditar']);
+        $editorial = mysqli_real_escape_string($con, $_POST['editorialEditar']);
+        $paginas = mysqli_real_escape_string($con, $_POST['paginasEditar']);
+        $ubicacion = mysqli_real_escape_string($con, $_POST['ubicacionEditar']);
+        $volumen = mysqli_real_escape_string($con, $_POST['volumenEditar']);
+        $numSerie = mysqli_real_escape_string($con, $_POST['numSerieEditar']);
+        $carrera = mysqli_real_escape_string($con, $_POST['carreraEditar']);
+        $url = mysqli_real_escape_string($con, $_POST['urlEditar']);
+        $temaEspecifico = mysqli_real_escape_string($con, $_POST['temaEspecificoEditar']);
+        $temaGeneral = mysqli_real_escape_string($con, $_POST['temaGeneralEditar']);
+        $sql = "UPDATE libros SET Titulo='$titulo', Autor='$autor', Titulo_Original='$tituloOriginal',
+        Anio_edicion=$anioEdicion, Lugar_Edicion='$lugarEdicion', Editorial='$editorial', 
+        Paginas=$paginas, Ubicacion_FK=$ubicacion, Volumen=$volumen, Num_Serie='$numSerie',
+        Carrera_FK=$carrera, URL='$url', Tema_General_FK=$temaGeneral, Tema_Especifico='$temaEspecifico'
+         WHERE ID_Libro=$id";
+        if($con->query($sql)==TRUE){
+            echo 1;
+        }else{
+            echo 0;
+        }
+        
+    }
+    if(isset($_POST) && $_POST['tag']=='buscar'){
+
+    }
+    if(isset($_POST) && $_POST['tag']=='agregarDetalle'){
+        $id = mysqli_real_escape_string($con,$_POST['id']);
+        $isnb = mysqli_real_escape_string($con, $_POST['isnb']);
+        $codioBarras = mysqli_real_escape_string($con, $_POST['codigoBarras']);
+        $sql = "INSERT INTO libros_detalle VALUES(null,'$isnb','$codioBarras',$id)";
+        if($con->query($sql)==TRUE){
+            echo 1;
+        }else{
+            echo 0;
+        }
+
+    }
+    if(isset($_POST) && $_POST['tag']=='mostrarDetalle'){
+        $id = mysqli_real_escape_string($con,$_POST['id']);
+        $sql = "SELECT * FROM libros_detalle WHERE Libros_FK=$id";
+        $result = $con->query($sql);
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                echo "<tr>
+                        <td>$row[ID_Detalle]</td>
+                        <td>$row[ISNB]</td>
+                        <td>$row[Codigo_Barras]</td>
+                     </tr>";
+            }
+        }
     }
 ?>

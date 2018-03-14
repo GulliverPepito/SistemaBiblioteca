@@ -15,8 +15,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ISBN</th>
-                                        <th scope="col">Código Barras</th>
+                                        <th scope="col">#</th>
                                         <th scope="col">Título</th>
                                         <th scope="col">Autor</th>
                                         <th scope="col">Título Original</th>
@@ -150,72 +149,67 @@
             </button>
           </div>
           <div class="modal-body">
-          <form action="" id="formLibro">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label for="isbn">ISBN</label>
-                                        <input type="text" class="form-control" name="isbnEditar" id="isbnEditar" require>
-                                    </div>
-                                </div>
+          <form action="" id="formEditarLibro">
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label for="codigoBarras">Codigo de Barras</label>
-                                        <input type="text" class="form-control" name="codigoBarrasEditar" id="codigoBarrasEditar" require>
+                                    <br>
+                                        <label for="idEditar">ID:</label>
+                                        <input type="text" class="form-control-plaintext formEditar" name="idEditar" id="idEditar" require readonly>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="titulo">Titulo</label>
-                                        <input type="text" class="form-control" name="titulo" id="tituloEditar" require>
+                                        <input type="text" class="form-control formEditar" name="tituloEditar" id="tituloEditar" require>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="autor">Autor</label>
-                                        <input type="text" class="form-control" name="autor" id="autorEditar" require>
+                                        <input type="text" class="form-control formEditar" name="autorEditar" id="autorEditar" require>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="tituloOriginal">Titulo Original</label>
-                                        <input type="text" class="form-control" name="tituloOriginal" id="tituloOriginalEditar" require>
+                                        <input type="text" class="form-control formEditar" name="tituloOriginalEditar" id="tituloOriginalEditar" require>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="anioEdicion">Año de Edicion</label>
-                                        <input type="number" class="form-control" name="anioEdicion" id="anioEdicionEditar" require>
+                                        <input type="number" class="form-control formEditar" name="anioEdicionEditar" id="anioEdicionEditar" require>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="lugarEdicion">Lugar de Edicion</label>
-                                        <input type="text" class="form-control" name="lugarEdicion" id="lugarEdicionEditar" require>
+                                        <input type="text" class="form-control" name="lugarEdicionEditar" id="lugarEdicionEditar" require>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="editorial">Editorial</label>
-                                        <input type="text" class="form-control" name="editorial" id="editorialEditar" require>
+                                        <input type="text" class="form-control formEditar" name="editorialEditar" id="editorialEditar" require>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="paginas">Paginas</label>
-                                        <input type="number" class="form-control" name="paginas" id="paginasEditar" require>
+                                        <input type="number" class="form-control formEditar" name="paginasEditar" id="paginasEditar" require>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="ubicacion">Ubicacion</label>
-                                        <select name="ubicacion" id="ubicacionEditar" class="form-control">
+                                        <select name="ubicacionEditar" id="ubicacionEditar" class="form-control formEditar">
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="volumen">Volumen</label>
-                                        <input type="number" class="form-control" name="volumen" id="volumenEditar" require>
+                                        <input type="number" class="form-control formEditar" name="volumenEditar" id="volumenEditar" require>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="numSerie">Numero de Serie</label>
-                                        <input type="text" class="form-control" name="numSerie" id="numSerieEditar" require>
+                                        <input type="text" class="form-control formEditar" name="numSerieEditar" id="numSerieEditar" require>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="carrera">Carrera</label>
-                                        <select name="carrera" id="carreraEditar" class="form-control">
+                                        <select name="carreraEditar" id="carreraEditar" class="form-control formEditar">
                                             
                                         </select>
                                     </div>
@@ -223,11 +217,11 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="url">Url</label>
-                                        <input type="url" class="form-control" name="url" id="urlEditar">
+                                        <input type="url" class="form-control formEditar" name="urlEditar" id="urlEditar">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="temaGeneral">Tema General</label>
-                                        <select name="temaGeneral" id="temaGeneralEditar" class="form-control">
+                                        <select name="temaGeneralEditar" id="temaGeneralEditar" class="form-control formEditar">
                                             
                                         </select>
                                     </div>
@@ -235,13 +229,18 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="temaEspecifico">Tema Especifico</label>
-                                        <input type="text" class="form-control" name="temaEspecifico" id="temaEspecificoEditar">
+                                        <input type="text" class="form-control formEditar" name="temaEspecificoEditar" id="temaEspecificoEditar">
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class='col-md-6'>
+                                        <input type='text' name='tag' value='actualizar' class='no'>
                                     </div>
                                 </div>
                             </form>
           <div class="modal-footer text-left">
             <button style="width: 10%;" type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
-            <button style="width: 10%;" type="submit" class="btn btn-danger" id="GuMUsu" disabled>Guardar</button>
+            <button style="width: 10%;" type="submit" class="btn btn-danger" id="GuardarLibro" disabled>Guardar</button>
           </div>
         </div>
       </div>
