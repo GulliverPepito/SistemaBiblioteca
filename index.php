@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/semantic.min.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="js/popper.min.js"></script>
+ 
 </head>
 
 <body>
