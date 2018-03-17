@@ -117,5 +117,34 @@ $(document).ready(function() {
 
         });
     });
+    $(document).on('click', '.eliminar', function() {
+        var id = $(this).parents('tr').find('span').eq(0).html();
+        var confir = confirm("Estas seguro que quieres modificar los datos del Libro. Una vez eliminado los datos estos no podrán ser recuperados jamás");
+        if (confir == true) {
+            $.ajax({
+                url: 'php/modificarLibro.php',
+                type: 'POST',
+                data: { id: id, tag: 'eliminar' },
+                success: function(response) {
+                    if (response == 1) {
+                        alert("Eliminado Correctamente");
+                    } else {
+                        alert("No se ha podido eliminar");
+                    }
+                    mostrarDatos();
+                }
+            });
+        }
+    });
+    $('#buscarLibro').keyup(function() {
+        $.ajax({
+            url: 'php/modificarLibro.php',
+            type: 'POST',
+            data: { buscar: $('#buscarLibro').val(), tag: 'buscar' },
+            success: function(response) {
+                $("#datosEditarLibros").html(response);
+            }
+        });
+    });
 
 });

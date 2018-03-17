@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                     <div class="input-group">
                             <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                            <input class="form-control input-lg" type="text" id="BuscaLibro" placeholder="Buscar libros">
+                            <input class="form-control input-lg" type="text" id="buscarLibro" placeholder="Buscar libros">
                     </div>
                 </div>
         </div>
