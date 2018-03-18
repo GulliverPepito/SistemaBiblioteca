@@ -246,3 +246,33 @@
       </div>
     </div>
 </div>
+<div class="modal fade bd-example-modal-lg" id="modalDetalle" tabindex="-1" role="dialog" aria-labelledby="ModalMoUsu" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 style="width: 90%;" class="modal-title" id="ModalMoUsu">Modificar Libro</h3>
+            <button style="width: 10%;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <form action="" id="formEditarLibroDetalle">
+                  <div class="row">
+                      <div class="form-group col-md-6">
+                        <label for="isnbModificarEditar">ISBN</label>
+                       <input type="text" class="form-control formEditarDetalle" id="isnbEditarDetalle" name="isnbDetalle">
+                      </div>
+                      <div class="form-group col-md-6">
+                      <label for="codigoBarrasModificarEditar">Codigo de Barras</label>
+                    <input type="text" class="form-control formEditarDetalle" id="codigoBarrasEditarDetalle" name="codigoBarrasModificarDetalle">
+                      </div>
+                  </div>         
+          </form>
+          <div class="modal-footer text-left">
+            <button style="width: 10%;" type="button" class="btn btn-light" data-dismiss="modal">Cerrar</button>
+            <button style="width: 10%;" type="submit" class="btn btn-danger" id="GuardarDetalle" disabled>Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

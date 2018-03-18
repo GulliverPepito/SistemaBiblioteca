@@ -79,8 +79,10 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>ISNB</th>
+                                    <th>ISBN</th>
                                     <th>CodigoBarras</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody id='detalleLibro'>
@@ -180,6 +182,14 @@
                         <td>$row[ID_Detalle]</td>
                         <td>$row[ISBN]</td>
                         <td>$row[Codigo_Barras]</td>
+                        <td>
+                        <div class='col-md-5'>
+                        <button type='button' class='btn btn-primary editarDetalle' id='btnEditarDetalle' data-toggle='modal' data-target='#modalDetalle'><i class='fa fa-cog' aria-hidden='true'></i></button>
+                        </div>
+                        </td>
+                        <td>
+                        <div class='col-md-5'><button type='button' class='btn btn-danger eliminarDetalle' id='btnEliminar'><i class='fa fa-trash' aria-hidden='true'></i></button></div>
+                        </td>
                      </tr>";
             }
         }
@@ -274,8 +284,10 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>ISNB</th>
+                                    <th>ISBN</th>
                                     <th>CodigoBarras</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody id='detalleLibro'>
@@ -320,6 +332,26 @@
                 </td>
                 </tr>";
             }
+        }
+    }
+    if(isset($_POST) && $_POST['tag']=='actualizarDetalle'){
+        $isbn = mysqli_real_escape_string($con,$_POST['isbn']);
+        $codigoBarras = mysqli_real_escape_string($con,$_POST['codigoBarras']);
+        $id = mysqli_real_escape_string($con,$_POST['id']);
+        $sql = "UPDATE libros_detalle SET ISBN='$isbn', Codigo_Barras='$codigoBarras' WHERE ID_Detalle=$id";
+        if($con->query($sql) == TRUE){
+            echo 1;
+        }else{
+            echo 0;
+        }
+    }
+    if(isset($_POST) && $_POST['tag']=='eliminarDetalle'){
+        $id = mysqli_real_escape_string($con,$_POST['id']);
+        $sql = "DELETE FROM libros_detalle WHERE ID_Detalle=$id";
+        if($con->query($sql) == TRUE){
+            echo 1;
+        }else{
+            echo 0;
         }
     }
 ?>

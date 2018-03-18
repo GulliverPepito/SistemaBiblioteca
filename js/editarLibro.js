@@ -65,6 +65,67 @@ $(document).ready(function() {
     $(document).on('keyup change', '.formEditar', function() {
         $("#GuardarLibro").attr("disabled", false);
     });
+    var idDetalle;
+    $(document).on('click', '.editarDetalle', function() {
+        idDetalle = $(this).parents('tr').find('td').eq(1).html();
+        $('#isnbEditarDetalle').val($(this).parents('tr').find('td').eq(2).html());
+        $('#codigoBarrasEditarDetalle').val($(this).parents('tr').find('td').eq(3).html());
+    });
+    $(document).on('click', '.eliminarDetalle', function() {
+        var confir = confirm('Esta seguro de Eliminar los datos? Una vez Eliminado no se podran recuperar los datos');
+        if (confir == true) {
+            var datos = {
+                id: $(this).parents('tr').find('td').eq(1).html(),
+                tag: 'eliminarDetalle'
+            };
+            $.ajax({
+                url: 'php/modificarLibro.php',
+                type: 'POST',
+                data: datos,
+                success: function(response) {
+                    if (response == 1) {
+                        alert('Eliminado Correctamente');
+                        mostrarDatosDetalle();
+                    } else {
+                        alert('Error no se pudo eliminar!');
+                    }
+                }
+            });
+        } else {
+            alert('Operacion Cancelada!');
+        }
+    });
+    $('.formEditarDetalle').keyup(function() {
+        $('#GuardarDetalle').attr("disabled", false);
+    });
+    $('#GuardarDetalle').click(function() {
+
+        var confir = confirm("Estas seguro que quieres modificar los datos del Libro. Una vez modificados los datos estos no podrán ser recuperados jamás");
+        if (confir == true) {
+            var datos = {
+                isbn: $('#isnbEditarDetalle').val(),
+                codigoBarras: $('#codigoBarrasEditarDetalle').val(),
+                id: idDetalle,
+                tag: 'actualizarDetalle'
+            };
+            $.ajax({
+                url: 'php/modificarLibro.php',
+                type: 'POST',
+                data: datos,
+                success: function(response) {
+                    if (response == 1) {
+                        alert('Guardado Correctamente!!');
+                        mostrarDatosDetalle();
+                    } else {
+                        alert('Error al Guardar!!');
+                    }
+                }
+            });
+        } else {
+            alert('Operacion Cancelada!');
+        }
+
+    });
     $('#GuardarLibro').click(function() {
         var confir = confirm("Estas seguro que quieres modificar los datos del Libro. Una vez modificados los datos estos no podrán ser recuperados jamás");
         if (confir == true) {
