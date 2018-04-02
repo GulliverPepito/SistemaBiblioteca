@@ -3,22 +3,22 @@
         <div class="card-body">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                <input class="form-control form-control-lg" type="text" id="BusCon" placeholder="Buscar ususarios">
+                <input class="form-control form-control-lg" type="text" id="BusCon" placeholder="Buscar Libros">
             </div>
             <br>
             <div class="row">
                 <div class="col-md-12">
                     <label class="radio-inline">
-                      <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> Todos
+                      <input type="radio" name="filtro" id="Radio1" value="" checked> Todos
                     </label>
                     <label class="radio-inline">
-                      <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Prestados
+                      <input type="radio" name="filtro" id="iRadio2" value="prestados"> Prestados
                     </label>
                     <label class="radio-inline">
-                      <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Disponibles
+                      <input type="radio" name="filtro" id="Radio3" value="disponibles"> Disponibles
                     </label> 
                     <label class="radio-inline">
-                      <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option4"> Vencido
+                      <input type="radio" name="filtro" id="Radio4" value="vencidos"> Vencidos
                     </label>  
                 </div>
                 <div class="col-md-12">
@@ -40,8 +40,9 @@
 
                             </tbody>
                         </table>
-                </div>
-            </div>        
+                    </div>
+                </div>        
+            </div>
         </div>
     </div>
 </div>

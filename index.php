@@ -32,6 +32,7 @@
     <?php require "php/menu.php"; ?>
     <section class="main">
         <div class="container-fluid">
+
             <div class="row mostrar" id="ReUsu">
                 <?php require "vistas/usuarios.php"; ?>
             </div>
@@ -49,17 +50,22 @@
             <div class="row mostrar" id="consul">
                 <?php require "vistas/consultas.php";?>
             </div>
+            <div class="row mostrar" id="estadis">
+               <?php require "vistas/estadisticas.php";?>
+            </div>
         </div>
     </section>
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/semantic.min.js"></script>
+    <script src="js/loader.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/agregarLibro.js"></script>
     <script src="js/usuarios.js"></script>
     <script src="js/login.js"></script>
     <script src="js/editarLibro.js"></script>
     <script src="js/consultas.js"></script>
+    <script src="js/estadisticas.js"></script>
 </body>
 
 </html>

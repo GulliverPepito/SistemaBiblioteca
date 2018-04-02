@@ -17,6 +17,7 @@ $(document).ready(function() {
             alert(res);
             $(".inpUsu").val("");
             $("#carga").hide(0);
+            mostrar();
         })
         .fail(function(res) {
             alert(res);

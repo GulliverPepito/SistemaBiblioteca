@@ -164,7 +164,7 @@
         $id = mysqli_real_escape_string($con,$_POST['id']);
         $isnb = mysqli_real_escape_string($con, $_POST['isnb']);
         $codioBarras = mysqli_real_escape_string($con, $_POST['codigoBarras']);
-        $sql = "INSERT INTO libros_detalle VALUES(null,'$isnb','$codioBarras',$id)";
+        $sql = "INSERT INTO libros_detalle VALUES(null,'$isnb','$codioBarras',$id,0)";
         if($con->query($sql)==TRUE){
             echo 1;
         }else{

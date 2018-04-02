@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-03-2018 a las 19:08:21
+-- Tiempo de generación: 02-04-2018 a las 19:29:41
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 5.6.31
 
@@ -80,7 +80,7 @@ INSERT INTO `carrera` (`ID_Carrera`, `Carrera`, `Codigo`) VALUES
 (4, 'Ing. En Industrias Alimentarias', NULL),
 (5, 'Ing. Electromecanica', NULL),
 (6, 'Ing. Ambiental', NULL),
-(7, 'N/A', NULL);
+(7, 'NA', NULL);
 
 -- --------------------------------------------------------
 
@@ -111,7 +111,8 @@ CREATE TABLE `libros` (
 --
 
 INSERT INTO `libros` (`ID_Libro`, `Titulo`, `Autor`, `Titulo_Original`, `Anio_Edicion`, `Lugar_Edicion`, `Editorial`, `Paginas`, `Ubicacion_FK`, `Volumen`, `Num_Serie`, `Carrera_FK`, `URL`, `Tema_General_FK`, `Tema_Especifico`) VALUES
-(1, 'Caballo de Troya', 'J. J. BenÃ­tez', 'Caballo de Troya', 1987, 'EspaÃ±a', 'Panama', 511, 1, 0, 'N/A', 7, 'http://www.alv.com', 5, 'Ciencia Ficcion');
+(1, 'Caballo de Troya', 'J. J. BenÃ­tez', 'Caballo de Troya', 1987, 'EspaÃ±a', 'Panama', 511, 1, 0, 'N/A', 7, 'http://www.alv.com', 5, 'Ciencia Ficcion'),
+(2, 'Bases de Datos', 'MarquÃ©s, Mercedes', 'Bases de Datos', 2011, 'EspaÃ±a', 'Sapiente', 247, 3, 0, '0', 1, '', 3, 'Bases de Datos ');
 
 -- --------------------------------------------------------
 
@@ -123,15 +124,17 @@ CREATE TABLE `libros_detalle` (
   `ID_Detalle` int(11) NOT NULL,
   `ISBN` varchar(50) NOT NULL,
   `Codigo_Barras` varchar(20) DEFAULT NULL,
-  `Libros_FK` int(11) DEFAULT NULL
+  `Libros_FK` int(11) DEFAULT NULL,
+  `Status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `libros_detalle`
 --
 
-INSERT INTO `libros_detalle` (`ID_Detalle`, `ISBN`, `Codigo_Barras`, `Libros_FK`) VALUES
-(1, 'sdfghj2345', '23456345', 1);
+INSERT INTO `libros_detalle` (`ID_Detalle`, `ISBN`, `Codigo_Barras`, `Libros_FK`, `Status`) VALUES
+(1, 'sdfghj2345', '23456345', 1, 1),
+(2, 'dstgfd456578', '567857878', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -143,9 +146,16 @@ CREATE TABLE `prestamos` (
   `ID_Prestamo` int(11) NOT NULL,
   `Fecha_Inicio` date DEFAULT NULL,
   `Fecha_Fin` date DEFAULT NULL,
-  `Prestatario_FK` int(11) DEFAULT NULL,
-  `Status` tinyint(1) NOT NULL
+  `Prestatario_FK` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `prestamos`
+--
+
+INSERT INTO `prestamos` (`ID_Prestamo`, `Fecha_Inicio`, `Fecha_Fin`, `Prestatario_FK`) VALUES
+(1, '2018-03-31', '2018-04-30', 1),
+(2, '2018-04-01', '2018-04-30', 2);
 
 -- --------------------------------------------------------
 
@@ -158,6 +168,14 @@ CREATE TABLE `prestamos_detalle` (
   `Libro_FK` int(11) NOT NULL,
   `Prestamo_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `prestamos_detalle`
+--
+
+INSERT INTO `prestamos_detalle` (`ID_Prestamo_Detalle`, `Libro_FK`, `Prestamo_FK`) VALUES
+(1, 2, 1),
+(2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -183,6 +201,14 @@ CREATE TABLE `prestatario` (
   `CP` varchar(10) DEFAULT NULL,
   `Fecha_Re` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `prestatario`
+--
+
+INSERT INTO `prestatario` (`ID_Prestatario`, `Nombres`, `ApellidoP`, `ApellidoM`, `Carrera_FK`, `Semestre`, `Tipo_FK`, `No_Control`, `Email`, `Telefono`, `Domicilio`, `Colonia`, `Municipio`, `Estado`, `CP`, `Fecha_Re`) VALUES
+(1, 'Juan', 'Garcia ', 'Angel ', 1, '8', 2, '141600003', 'jramongarciaangel@gmail.com', '348154555', 'dsfghdsfgh', 'sdfg', 'sdfg', 'sdfg', '47180', '2018-03-31 14:35:34'),
+(2, 'fcgvsds', 'dfg', 'sdfg', 2, '8', 2, '141600000', 'sfad@sds', '4155185', 'saddf', 'sdf', 'sdf', 'sad', '47180', '2018-03-31 15:45:01');
 
 -- --------------------------------------------------------
 
@@ -381,27 +407,27 @@ ALTER TABLE `carrera`
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `ID_Libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_Libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `libros_detalle`
 --
 ALTER TABLE `libros_detalle`
-  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `ID_Prestamo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `prestamos_detalle`
 --
 ALTER TABLE `prestamos_detalle`
-  MODIFY `ID_Prestamo_Detalle` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Prestamo_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `prestatario`
 --
 ALTER TABLE `prestatario`
-  MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `tema_general`
 --
@@ -456,7 +482,7 @@ ALTER TABLE `prestamos`
 -- Filtros para la tabla `prestamos_detalle`
 --
 ALTER TABLE `prestamos_detalle`
-  ADD CONSTRAINT `prestamos_detalle_ibfk_1` FOREIGN KEY (`Libro_FK`) REFERENCES `libros` (`ID_Libro`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `prestamos_detalle_ibfk_1` FOREIGN KEY (`Libro_FK`) REFERENCES `libros_detalle` (`ID_Detalle`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `prestamos_detalle_ibfk_2` FOREIGN KEY (`Prestamo_FK`) REFERENCES `prestamos` (`ID_Prestamo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

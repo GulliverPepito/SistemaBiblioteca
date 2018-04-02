@@ -61,4 +61,9 @@ $(document).ready(function() {
         $(".mostrar").hide();
         $("#consul").show();
     });
+
+    $(document).on("click", "#Estadisticas", function() {
+        $(".mostrar").hide();
+        $("#estadis").show();
+    });
 });
