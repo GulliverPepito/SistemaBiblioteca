@@ -9,17 +9,6 @@ $(document).ready(function() {
             }
         });
     }
-
-    function mostrarDatosDetalle(id) {
-        $.ajax({
-            url: 'php/modificarLibro.php',
-            type: 'POST',
-            data: { tag: 'mostrarDetalle', id: id },
-            success: function(response) {
-                $('#detalleLibro').html(response);
-            }
-        });
-    }
     mostrarDatos();
     $(document).on('click', '#btnEditar', function() {
         var id = $(this).parents('tr').find('span').eq(0).html();
@@ -60,7 +49,19 @@ $(document).ready(function() {
     $(document).on('click', '#btnVerMas', function() {
         $(this).parents('tr').find('.noMostrar').toggle('slow');
         var id = $(this).parents('tr').find('span').eq(0).html();
-        mostrarDatosDetalle(id);
+        var ths = $(this);
+        var respuesta = "hola";
+        $.ajax({
+            url: 'php/modificarLibro.php',
+            type: 'POST',
+            data: { tag: 'mostrarDetalle', id: id },
+            success: function(response) {
+                //$('#detalleLibro').html(response);
+                // alert(response);
+                respuesta = response;
+                $(ths).parents('tr').find('#detalleLibro').html(respuesta);
+            }
+        });
     });
     $(document).on('keyup change', '.formEditar', function() {
         $("#GuardarLibro").attr("disabled", false);
@@ -162,20 +163,30 @@ $(document).ready(function() {
             codigoBarras: $(this).parents('tr').find('#codigoBarrasModificar').val(),
             tag: 'agregarDetalle'
         };
+        var ths = $(this);
         $.ajax({
             url: 'php/modificarLibro.php',
             type: 'POST',
             data: datos,
             success: function(response) {
                 if (response == 1) {
-                    mostrarDatosDetalle(id);
-                    $('#isnbModificar').val('');
-                    $('#codigoBarrasModificar').val('');
+                    $(ths).parents('tr').find('#isnbModificar').val('');
+                    $(ths).parents('tr').find('#codigoBarrasModificar').val('');
                 } else {
                     alert('Error no se pudo agregar');
                 }
             }
 
+        });
+        $.ajax({
+            url: 'php/modificarLibro.php',
+            type: 'POST',
+            data: { tag: 'mostrarDetalle', id: id },
+            success: function(response) {
+                //$('#detalleLibro').html(response);
+                // alert(response);
+                $(ths).parents('tr').find('#detalleLibro').html(response);
+            }
         });
     });
     $(document).on('click', '.eliminar', function() {
