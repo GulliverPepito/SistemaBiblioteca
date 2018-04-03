@@ -32,7 +32,7 @@ $('#formLibro').submit(function(evt) {
                 $('#temaGeneral').val('');
                 $('#temaEspecifico').val('');
                 $('#carga').hide(0);
-
+                mostrarDatos();
             } else {
                 alert('Error No se pudo Agregar');
                 $('#carga').hide(0);
@@ -74,6 +74,17 @@ function tema() {
         success: function(response) {
             $('#temaGeneral').append(response);
             $('#temaGeneralEditar').append(response);
+        }
+    });
+}
+
+function mostrarDatos() {
+    $.ajax({
+        url: 'php/modificarLibro.php',
+        type: 'POST',
+        data: { tag: 'mostrarDatos' },
+        success: function(response) {
+            $("#datosEditarLibros").html(response);
         }
     });
 }
