@@ -68,9 +68,10 @@ $(document).ready(function() {
     });
     var idDetalle;
     $(document).on('click', '.editarDetalle', function() {
-        idDetalle = $(this).parents('tr').find('td').eq(1).html();
-        $('#isnbEditarDetalle').val($(this).parents('tr').find('td').eq(2).html());
-        $('#codigoBarrasEditarDetalle').val($(this).parents('tr').find('td').eq(3).html());
+       //idDetalle = $(this).parents('tr').find('td').eq(1).html();
+        console.log($(this).parent().parent().parent().children('td:eq(0)').text());
+        /*$('#isnbEditarDetalle').val($(this).parents('tr').find('td').eq(2).html());
+        $('#codigoBarrasEditarDetalle').val($(this).parents('tr').find('td').eq(3).html());*/
     });
     $(document).on('click', '.eliminarDetalle', function() {
         var confir = confirm('Esta seguro de Eliminar los datos? Una vez Eliminado no se podran recuperar los datos');
