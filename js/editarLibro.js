@@ -17,6 +17,8 @@ $(document).ready(function() {
             data: { tag: 'mostrarDetalle', id: id },
             success: function(response) {
                 $(obj).parents('tr').find('#detalleLibro').html(response);
+                alert('Guardado Correctamente!!');
+                $('#carga').hide(0);
             }
         });
     }
@@ -129,10 +131,12 @@ $(document).ready(function() {
                 url: 'php/modificarLibro.php',
                 type: 'POST',
                 data: datos,
+                beforeSend: function() { $('#carga').show(); },
                 success: function(response) {
                     if (response == 1) {
-                        alert('Guardado Correctamente!!');
+                        mostrarDatos();
                         mostrarDatosDetalle(ths, idLibro);
+                        $("#GuardarDetalle").attr("disabled", true);
                     } else {
                         alert('Error al Guardar!!');
                     }

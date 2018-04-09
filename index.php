@@ -56,6 +56,9 @@
             <div class="row mostrar" id="impri">
                <?php require "vistas/imprimir.php";?>
             </div>
+            <div class="row mostrar" id='nuevoPresta'>
+                <?php require "vistas/nuevoPrestamo.php";?>
+            </div>
         </div>
     </section>
     <script src="js/jquery-3.1.1.min.js"></script>

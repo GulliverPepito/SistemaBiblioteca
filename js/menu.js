@@ -71,4 +71,9 @@ $(document).ready(function() {
         $(".mostrar").hide();
         $("#impri").show();
     });
+
+    $(document).on("click", "#Nuevo", function() {
+        $(".mostrar").hide();
+        $("#nuevoPresta").show();
+    });
 });
