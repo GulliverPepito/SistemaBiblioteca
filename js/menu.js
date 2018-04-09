@@ -66,4 +66,9 @@ $(document).ready(function() {
         $(".mostrar").hide();
         $("#estadis").show();
     });
+
+    $(document).on("click", "#Imprimir", function() {
+        $(".mostrar").hide();
+        $("#impri").show();
+    });
 });

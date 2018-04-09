@@ -53,6 +53,9 @@
             <div class="row mostrar" id="estadis">
                <?php require "vistas/estadisticas.php";?>
             </div>
+            <div class="row mostrar" id="impri">
+               <?php require "vistas/imprimir.php";?>
+            </div>
         </div>
     </section>
     <script src="js/jquery-3.1.1.min.js"></script>
