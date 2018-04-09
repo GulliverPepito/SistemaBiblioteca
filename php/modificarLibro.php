@@ -332,6 +332,8 @@
                 </td>
                 </tr>";
             }
+        }else{
+            echo "No se encontraron resultados";
         }
     }
     if(isset($_POST) && $_POST['tag']=='actualizarDetalle'){
