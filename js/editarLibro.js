@@ -9,6 +9,17 @@ $(document).ready(function() {
             }
         });
     }
+
+    function mostrarDatosDetalle(obj, id) {
+        $.ajax({
+            url: 'php/modificarLibro.php',
+            type: 'POST',
+            data: { tag: 'mostrarDetalle', id: id },
+            success: function(response) {
+                $(obj).parents('tr').find('#detalleLibro').html(response);
+            }
+        });
+    }
     mostrarDatos();
     $(document).on('click', '#btnEditar', function() {
         var id = $(this).parents('tr').find('span').eq(0).html();
@@ -46,9 +57,11 @@ $(document).ready(function() {
     $(document).on('click', '#agregarMas', function() {
         $(this).parents('tr').find('.agregar').toggle('slow');
     });
+    var idLibro;
     $(document).on('click', '#btnVerMas', function() {
         $(this).parents('tr').find('.noMostrar').toggle('slow');
         var id = $(this).parents('tr').find('span').eq(0).html();
+        idLibro = id;
         var ths = $(this);
         var respuesta = "hola";
         $.ajax({
@@ -67,7 +80,9 @@ $(document).ready(function() {
         $("#GuardarLibro").attr("disabled", false);
     });
     var idDetalle;
+    var ths;
     $(document).on('click', '.editarDetalle', function() {
+        ths = $(this);
         idDetalle = $(this).parent().parent().parent().children('td:eq(0)').text();
         //console.log($(this).parent().parent().parent().children('td:eq(0)').text());
         $('#isnbEditarDetalle').val($(this).parent().parent().parent().children('td:eq(1)').text());
@@ -77,7 +92,7 @@ $(document).ready(function() {
         var confir = confirm('Esta seguro de Eliminar los datos? Una vez Eliminado no se podran recuperar los datos');
         if (confir == true) {
             var datos = {
-                id: $(this).parents('tr').find('td').eq(1).html(),
+                id: $(this).parent().parent().parent().children('td:eq(0)').text(),
                 tag: 'eliminarDetalle'
             };
             $.ajax({
@@ -87,7 +102,7 @@ $(document).ready(function() {
                 success: function(response) {
                     if (response == 1) {
                         alert('Eliminado Correctamente');
-                        mostrarDatosDetalle();
+                        mostrarDatosDetalle(ths, idLibro);
                     } else {
                         alert('Error no se pudo eliminar!');
                     }
@@ -117,7 +132,7 @@ $(document).ready(function() {
                 success: function(response) {
                     if (response == 1) {
                         alert('Guardado Correctamente!!');
-                        mostrarDatosDetalle();
+                        mostrarDatosDetalle(ths, idLibro);
                     } else {
                         alert('Error al Guardar!!');
                     }
