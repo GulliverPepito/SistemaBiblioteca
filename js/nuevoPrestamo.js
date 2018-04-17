@@ -103,6 +103,9 @@ $(document).ready(function() {
         $('.prestamo').val('');
         num = 0;
     }
+    $(document).on('click', '.eliminarDetalleLibro', function() {
+        $(this).parents('tr').remove();
+    });
 
     function getDia() {
         var hoy = new Date();

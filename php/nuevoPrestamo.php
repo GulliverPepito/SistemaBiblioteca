@@ -29,7 +29,7 @@
                 <td>$row[ISBN]</td>
                 <td>$row[ID_Detalle]</td>
                 <td>$row[Titulo]</td>
-                <td><button type='button' class='btn btn-danger'><i class='fa fa-trash' aria-hidden='true'></i> Eliminar</button></td>
+                <td><button type='button' class='btn btn-danger eliminarDetalleLibro'><i class='fa fa-trash' aria-hidden='true'></i> Eliminar</button></td>
                 </tr>";
             }
         }
