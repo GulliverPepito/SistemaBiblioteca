@@ -75,5 +75,6 @@ $(document).ready(function() {
     $(document).on("click", "#Nuevo", function() {
         $(".mostrar").hide();
         $("#nuevoPresta").show();
+        $('#buscarUsuarioPrestamo').focus();
     });
 });
