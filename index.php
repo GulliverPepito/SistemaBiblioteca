@@ -59,6 +59,9 @@
             <div class="row mostrar" id='nuevoPresta'>
                 <?php require "vistas/nuevoPrestamo.php";?>
             </div>
+            <div class="row mostrar" id='editarPrestamo'>
+                <?php require "vistas/editarPrestamo.php";?>
+            </div>
         </div>
     </section>
     <script src="js/jquery-3.1.1.min.js"></script>
@@ -73,6 +76,7 @@
     <script src="js/consultas.js"></script>
     <script src="js/estadisticas.js"></script>
     <script src="js/nuevoPrestamo.js"></script>
+    <script src="js/editarPrestamo.js"></script>
 </body>
 
 </html>

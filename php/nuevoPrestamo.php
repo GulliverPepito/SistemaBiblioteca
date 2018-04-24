@@ -38,7 +38,7 @@
         $fechaInicio = mysqli_real_escape_string($con,$_POST['fechaInicio']);
         $fechaFin = mysqli_real_escape_string($con,$_POST['fechaFin']);
         $prestatario = mysqli_real_escape_string($con,$_POST['prestatario']);
-        $sql = "INSERT INTO prestamos VALUES(null,'$fechaInicio','$fechaFin',$prestatario)";
+        $sql = "INSERT INTO prestamos VALUES(null,'$fechaInicio','$fechaFin',$prestatario,1)";
         if($con->query($sql)){
             $last_id = $con->insert_id;
             echo $last_id;

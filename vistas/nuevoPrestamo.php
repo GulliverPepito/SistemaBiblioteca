@@ -1,7 +1,7 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-body">
-        <h1 class="text-center">Nuevo Prestamo</h1>
+        <h1 class="text-center">Prestamo</h1>
             <form action="" id="buscarUsuarioPrestamoForm">
                 <button type="submit" class='no'></button>
                 <div class="row">
@@ -69,6 +69,12 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <button type='button' class="btn btn-success" id="btnGuardarPrestamo"><i class="fa fa-floppy-o" aria-hidden="true" ></i> Guardar Prestamo</button>
+                </div>
+                <div class="col-md-6 offset-md-3">
+                    <button type='button' class="btn btn-primary noMostrar" id="btnActualizarPrestamo"><i class="fa fa-undo" aria-hidden="true" ></i> Actualizar Prestamo</button>
+                </div>
+                <div class="col-md-6 offset-md-3">
+                    <button type='button' class="btn btn-info noMostrar" id="btnRegresarPrestamo"><i class="fa fa-undo" aria-hidden="true" ></i> Regresar Prestamo</button>
                 </div>
             </div>
         </div>

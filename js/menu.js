@@ -75,6 +75,19 @@ $(document).ready(function() {
     $(document).on("click", "#Nuevo", function() {
         $(".mostrar").hide();
         $("#nuevoPresta").show();
+        $('#buscarUsuarioPrestamo').attr('disabled', false);
+        $('#numeroControlPrestamo').val('');
+        $('#alumnoPrestamo').val('');
+        $('#carreraPrestamo').val('');
+        $('#tipoPrestamo').val('');
+        $('#buscarLibrosPrestamo').attr('disabled', true);
+        $('#tbDetallePrestamo').html('');
         $('#buscarUsuarioPrestamo').focus();
+        $('#btnActualizarPrestamo').hide();
+        $('#btnRegresarPrestamo').hide();
+    });
+    $(document).on('click', '#ModificarPrestamo', function() {
+        $(".mostrar").hide();
+        $("#editarPrestamo").show();
     });
 });
