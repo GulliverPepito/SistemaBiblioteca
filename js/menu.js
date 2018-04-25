@@ -85,6 +85,7 @@ $(document).ready(function() {
         $('#buscarUsuarioPrestamo').focus();
         $('#btnActualizarPrestamo').hide();
         $('#btnRegresarPrestamo').hide();
+        $('#btnGuardarPrestamo').show();
     });
     $(document).on('click', '#ModificarPrestamo', function() {
         $(".mostrar").hide();

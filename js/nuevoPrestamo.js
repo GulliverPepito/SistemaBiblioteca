@@ -24,15 +24,31 @@ $(document).ready(function() {
     });
     $('#buscarLibrosPrestamoForm').submit(function(evt) {
         evt.preventDefault();
-        $.ajax({
-            url: 'php/nuevoPrestamo.php',
-            type: 'POST',
-            data: { codigo: $('#buscarLibrosPrestamo').val(), tag: 'buscarLibro' },
-            success: function(response) {
-                $('#tbDetallePrestamo').append(response);
-                $('#buscarLibrosPrestamo').val('');
+        var num = 0;
+        var a = true;
+        $('#tbDetallePrestamo tr').each(function() {
+            num++;
+            var cod = $(this).find('td').eq(0).html();
+            if (cod == $('#buscarLibrosPrestamo').val()) {
+                alert('Libro ya ha sido agregado!!!');
+                a = false;
+            }
+            if (num >= 3) {
+                alert('Solo puede agregar 3 Libros por Alumno');
+                a = false;
             }
         });
+        if (a) {
+            $.ajax({
+                url: 'php/nuevoPrestamo.php',
+                type: 'POST',
+                data: { codigo: $('#buscarLibrosPrestamo').val(), tag: 'buscarLibro' },
+                success: function(response) {
+                    $('#tbDetallePrestamo').append(response);
+                    $('#buscarLibrosPrestamo').val('');
+                }
+            });
+        }
     });
     var datos = [];
     var num = 0;

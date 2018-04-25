@@ -65,6 +65,7 @@ $(document).ready(function() {
                         $('#btnRegresarPrestamo').hide();
                         $('#btnActualizarPrestamo').hide();
                         mostrarPrestamos();
+                        mostrar();
                     } else {
                         alert('Error no fue posible devolver el prestamo');
                     }
@@ -90,6 +91,7 @@ $(document).ready(function() {
                     if (response == 1) {
                         alert('Eliminado Correctamente');
                         mostrarPrestamos();
+                        mostrar();
                     } else {
                         alert('Error No fue posible eliminarlo');
                     }
@@ -177,6 +179,8 @@ $(document).ready(function() {
                 success: function(response) {
                     if (response == 1) {
                         alert('Actualizado Correctamente!');
+                        mostrarPrestamos();
+                        mostrar();
                     } else {
                         alert('Error! No fue posible actualizar');
                     }
@@ -188,5 +192,20 @@ $(document).ready(function() {
         }
 
     });
+
+    function mostrar() {
+        var data = "bus=" + $("#BusCon").val() + "&status=" + $('input:radio[name=filtro]:checked').val();
+        $.ajax({
+                url: 'php/consultas.php',
+                type: 'POST',
+                data: data
+            })
+            .done(function(res) {
+                $("#verConsu").html(res);
+            })
+            .fail(function() {
+                alert(res);
+            })
+    }
     mostrarPrestamos();
 });
