@@ -44,8 +44,12 @@ $(document).ready(function() {
                 type: 'POST',
                 data: { codigo: $('#buscarLibrosPrestamo').val(), tag: 'buscarLibro' },
                 success: function(response) {
-                    $('#tbDetallePrestamo').append(response);
-                    $('#buscarLibrosPrestamo').val('');
+                    if (response == 0) {
+                        alert('El Libro no se encuentra Disponible!!!');
+                    } else {
+                        $('#tbDetallePrestamo').append(response);
+                        $('#buscarLibrosPrestamo').val('');
+                    }
                 }
             });
         }
