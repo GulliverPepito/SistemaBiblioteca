@@ -24,6 +24,7 @@
         $result = $con->query($sql);
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
+                if($row['Status']==0){
                 echo " <tr>
                 <td>$row[Codigo_Barras]</td>
                 <td>$row[ISBN]</td>
@@ -31,6 +32,9 @@
                 <td>$row[Titulo]</td>
                 <td><button type='button' class='btn btn-danger eliminarDetalleLibro'><i class='fa fa-trash' aria-hidden='true'></i> Eliminar</button></td>
                 </tr>";
+                }else{
+                    echo 0;
+                }
             }
         }
     }    
