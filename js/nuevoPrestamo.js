@@ -93,6 +93,7 @@ $(document).ready(function() {
             success: function(response) {
                 if (response == 1) {
                     alert('Guardado Correctamente');
+                    mostrarPrestamos();
                 } else {
                     alert('Error no se pudo guardar el prestamo');
                 }
@@ -120,6 +121,17 @@ $(document).ready(function() {
         }
         hoy = yyyy + '-' + mm + '-' + dd;
         $('#fechaPrestamo').val(hoy);
+    }
+
+    function mostrarPrestamos() {
+        $.ajax({
+            url: 'php/editarPrestamo.php',
+            type: 'POST',
+            data: { tag: 'mostrarPrestamos' },
+            success: function(response) {
+                $('#tbPrestamos').html(response);
+            }
+        });
     }
     getDia();
 });

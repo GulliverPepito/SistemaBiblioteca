@@ -63,7 +63,7 @@
     }
     if(isset($_POST) && $_POST['tag']=='detallePrestamo'){
         $id = mysqli_real_escape_string($con,$_POST['id']);
-        $sql = "SELECT * FROM prestamos_detalle,libros_detalle,libros WHERE Libro_FK=ID_Detalle AND Libros_FK=ID_Libro";
+        $sql = "SELECT * FROM prestamos_detalle,libros_detalle,libros WHERE Libro_FK=ID_Detalle AND Libros_FK=ID_Libro AND Prestamo_FK=$id";
         $result = $con->query($sql);
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
@@ -110,6 +110,44 @@
         $id = mysqli_real_escape_string($con,$_POST['id']);
         $sql = "DELETE FROM prestamos_detalle WHERE  Prestamo_FK=$id";
         $datosDetalle = $_POST['datos'];
+        if($con->query($sql)){
+            foreach($datosDetalle as $datos){
+                $libro = $datos['libro'];
+                $prestamo = $datos['prestamo'];
+                $sql2 = "INSERT INTO prestamos_detalle VALUES(null,$libro,$prestamo)";
+                $con->query($sql2);
+            }
+            echo 1;
+        }else{
+            echo 0;
+        }
+    }
+    if(isset($_POST) && $_POST['tag']=='librosDetalle'){
+        $id = mysqli_real_escape_string($con,$_POST['id']);
+        $sql = "SELECT * FROM prestamos_detalle WHERE  Prestamo_FK=$id";
+        $result = $con->query($sql);
+        $num = 0;
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $num++;
+            }
+            echo $num;
+        }
+    }
+    if(isset($_POST) && $_POST['tag']=='adeudos'){
+        $id = mysqli_real_escape_string($con,$_POST['id']);
+        $cantidad = mysqli_real_escape_string($con,$_POST['cantidad']);
+        $sql = "INSERT INTO adeudos VALUES(null,$id,$cantidad,1)";
+        if($con->query($sql) == TRUE){
+            echo 1;
+        }else{
+            echo 0;
+        }
+    }
+    if(isset($_POST) && $_POST['tag']=='actualizarDetalle'){
+        $id = mysqli_real_escape_string($con,$_POST['id']);
+        $datosDetalle = $_POST['datos'];
+        $sql = "DELETE FROM prestamos_detalle WHERE Prestamo_FK=$id";
         if($con->query($sql)){
             foreach($datosDetalle as $datos){
                 $libro = $datos['libro'];

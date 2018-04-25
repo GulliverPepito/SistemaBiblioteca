@@ -101,5 +101,92 @@ $(document).ready(function() {
             alert('Operacion Cancelada');
         }
     });
+    var alumno;
+    $(document).on('click', '.pagarPrestamo', function() {
+        id = $(this).parents('tr').find('td').eq(0).html();
+        var fechaFin = $(this).parents('tr').find('td').eq(2).html();
+        var fin = new Date(fechaFin).getTime();
+        var hoy = new Date();
+        var dd = hoy.getDate();
+        var mm = hoy.getMonth() + 1; //hoy es 0!
+        var yyyy = hoy.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+        hoy = yyyy + '-' + mm + '-' + dd;
+        var fechaInicio = new Date(hoy).getTime();
+        var diff = fechaInicio - fin;
+        var dias = diff / (1000 * 60 * 60 * 24);
+        $.ajax({
+            url: 'php/editarPrestamo.php',
+            type: 'POST',
+            data: { tag: 'librosDetalle', id: id },
+            success: function(response) {
+                var d = parseFloat(response) * 5;
+                var deuda = d * dias;
+                $('.deuda').html(deuda.toFixed(2));
+            }
+        });
+    });
+    $('#btnPagar').click(function() {
+        $.ajax({
+            url: 'php/editarPrestamo.php',
+            type: 'POST',
+            data: { tag: 'adeudos', id: id, cantidad: $('.deuda').html() },
+            beforeSend: function() {
+                $('#carga').show();
+            },
+            success: function(response) {
+                if (response == 1) {
+                    alert('Pagado Correctamente');
+                    mostrarPrestamos();
+                } else {
+                    alert('Error');
+                }
+                $('#carga').hide();
+            }
+        });
+    });
+    $('#btnActualizarPrestamo').click(function() {
+        var datos = [];
+        var num = 0;
+        $('#tbDetallePrestamo tr').each(function() {
+            datos[num] = {
+                libro: $(this).find('td').eq(2).html(),
+                prestamo: id
+            };
+            num++;
+        });
+        var datosDetalle = {
+            datos: datos,
+            tag: 'actualizarDetalle',
+            id: id
+        }
+        var conf = confirm('Esta seguro de actualizar, una vez realizado no se podra regresar!');
+        if (conf) {
+            $.ajax({
+                url: 'php/editarPrestamo.php',
+                type: 'POST',
+                data: datosDetalle,
+                beforeSend: function() {
+                    $('#carga').show();
+                },
+                success: function(response) {
+                    if (response == 1) {
+                        alert('Actualizado Correctamente!');
+                    } else {
+                        alert('Error! No fue posible actualizar');
+                    }
+                    $('#carga').hide();
+                }
+            });
+        } else {
+            alert('Operacion Cancelada!');
+        }
+
+    });
     mostrarPrestamos();
 });

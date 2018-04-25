@@ -40,11 +40,15 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class='text-danger'>Deuda Total:$<span class='deuda'></span></h1>
+            </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width: 30%;">Cerrar</button>
-        <button type="button" class="btn btn-success" style="width: 30%;"><i class='fa fa-credit-card' aria-hidden='true'></i> Pagar</button>
+        <button type="button" class="btn btn-success" style="width: 30%;" id="btnPagar"><i class='fa fa-credit-card' aria-hidden='true'></i> Pagar</button>
       </div>
     </div>
   </div>

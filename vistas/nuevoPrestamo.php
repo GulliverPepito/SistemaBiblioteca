@@ -74,7 +74,7 @@
                     <button type='button' class="btn btn-primary noMostrar" id="btnActualizarPrestamo"><i class="fa fa-undo" aria-hidden="true" ></i> Actualizar Prestamo</button>
                 </div>
                 <div class="col-md-6 offset-md-3">
-                    <button type='button' class="btn btn-info noMostrar" id="btnRegresarPrestamo"><i class="fa fa-undo" aria-hidden="true" ></i> Regresar Prestamo</button>
+                    <button type='button' class="btn btn-info noMostrar" id="btnRegresarPrestamo" style="margin-top:10px;"><i class="fa fa-undo" aria-hidden="true" ></i> Regresar Prestamo</button>
                 </div>
             </div>
         </div>
