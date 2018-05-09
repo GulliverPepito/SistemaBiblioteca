@@ -12,6 +12,8 @@ $(document).on('submit','#formlg',function(event){
 			console.log(res);
 			if(res==1){
 				location.href = 'index.php';
+			} else if(res==2){
+				location.href = 'alumno.php';
 			} else {
 				setTimeout(function(){
 					$('#ver').html('<div class="alert alert-danger"><strong>Alerta!</strong> El Usuario y/o Contraseña estan mal.</div>');

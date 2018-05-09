@@ -1,22 +1,30 @@
 <?php
     include 'conexion.php';
+    session_start();
+    $id=$_SESSION["user"]["ID_Usuario"];
     date_default_timezone_set('UTC');
     if(isset($_POST) && $_POST['tag']=='mostrarPrestamos'){
-        $sql = "SELECT * FROM prestamos INNER JOIN prestatario ON Prestatario_FK=ID_Prestatario";
+        $sql = "SELECT * FROM prestamos INNER JOIN prestatario WHERE ID_Prestatario='$id' AND Prestatario_FK='$id'";
         $result = $con->query($sql);
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
                 $alumno = $row['Nombres']." ".$row['ApellidoP']." ".$row['ApellidoM'];
                 $status = "";
                 $button = "";
-                $button2 = "<button type='button' class='btn btn-danger eliminarPrestamo' id='btnEliminarPrestamo'><i class='fa fa-trash' aria-hidden='true'></i> Eliminar</button>";
+                if($row['Tipo_FK'] == 1){
+                    $button2 = "<button type='button' class='btn btn-danger eliminarPrestamo' id='btnEliminarPrestamo'><i class='fa fa-trash' aria-hidden='true'></i> Eliminar</button>";
+                }
                 if($row['status']==0){
                     $status = "Devuelto";
                     $button = "<button type='button' class='btn btn-primary editarPrestamo' id='btnEditarPrestamo' disabled><i class='fa fa-cog' aria-hidden='true'></i> Editar</button>";
                 }
                 if($row['status']==1){
                     $status = "Activo";
+                    if($row['Tipo_FK'] == 4){
                     $button = "<button type='button' class='btn btn-primary editarPrestamo' id='btnEditarPrestamo'><i class='fa fa-cog' aria-hidden='true'></i> Editar</button>";
+                    } else {
+                        $button = "<button type='button' class='btn btn-primary editarPrestamo' id='btnEditarPrestamo'><i class='fa fa-cog' aria-hidden='true'></i> Ver</button>";
+                    }
                 }
                 if($row['status']==2){
                     $status = "Pagado";
@@ -36,17 +44,19 @@
                             <td>$status</td>
                             <td>
                                 $button
-                            </td>
-                            <td>
+                            </td>";
+                            if($row['Tipo_FK'] == 1){
+                            echo "<td>
                                 $button2
-                            </td>
-                        </tr>";
+                            </td>";
+                            }
+                        echo "</tr>";
             }
         }
     }
     if(isset($_POST) && $_POST['tag']=='editarPrestamo'){
         $id = mysqli_real_escape_string($con,$_POST['id']);
-        $sql = "SELECT * FROM prestamos,prestatario,tipo_prestatario,carrera  WHERE Prestatario_FK=ID_Prestatario AND ID_Prestamo=$id AND  Carrera_FK=ID_Carrera
+        $sql = "SELECT * FROM prestamos,prestatario,tipo_prestatario,carrera WHERE Prestatario_FK=ID_Prestatario AND ID_Prestamo=$id AND  Carrera_FK=ID_Carrera
          AND Tipo_FK=ID_Tipo";
         $result = $con->query($sql);
         $respuesta = new StdClass();
@@ -71,9 +81,11 @@
                 <td>$row[Codigo_Barras]</td>
                 <td>$row[ISBN]</td>
                 <td>$row[ID_Detalle]</td>
-                <td>$row[Titulo]</td>
-                <td><button type='button' class='btn btn-danger eliminarDetalleLibro'><i class='fa fa-trash' aria-hidden='true'></i> Eliminar</button></td>
-                </tr>";
+                <td>$row[Titulo]</td>";
+                if($row['Tipo_FK'] == 1){
+                echo "<td><button type='button' class='btn btn-danger eliminarDetalleLibro'><i class='fa fa-trash' aria-hidden='true'></i> Eliminar</button></td>";
+                }
+                echo "</tr>";
             }
         }
     }

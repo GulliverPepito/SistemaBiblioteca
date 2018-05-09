@@ -3,6 +3,8 @@
     if(isset($_SESSION['user'])){
        if($_SESSION['user']['Tipo']==1){
             header('Location: index.php');
+        } else if($_SESSION['user']['Tipo']==2){
+            header('Location: alumno.php');
         }
     }
 ?>

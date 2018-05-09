@@ -27,8 +27,11 @@ $(document).ready(function() {
                 $('#tipoPrestamo').val(response.tipo);
                 $('#buscarLibrosPrestamo').attr('disabled', false);
                 $('#btnGuardarPrestamo').hide();
-                $('#btnRegresarPrestamo').show();
-                $('#btnActualizarPrestamo').show();
+                console.log(response.tipo);
+                if(response.tipo=='Admin'){
+                    $('#btnRegresarPrestamo').show();
+                    $('#btnActualizarPrestamo').show();
+                }
             }
         });
         $.ajax({
