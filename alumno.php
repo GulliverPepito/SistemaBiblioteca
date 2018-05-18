@@ -1,7 +1,7 @@
 <?php  
     session_start();
     if(isset($_SESSION['user'])){
-       if($_SESSION['user']['Tipo']!=1){
+       if($_SESSION['user']['Tipo']!=2){
             header('Location: login.php');
         }
     }else{
@@ -29,32 +29,13 @@
         <p><img class="carIma" src="img/carga.svg"></p>
         <p><img class="logo" src="img/logo.png"></p>
     </div>
-    <?php require "php/menu.php"; ?>
+    <?php require "php/menu_a.php"; ?>
     <section class="main">
         <div class="container-fluid">
 
-            <div class="row mostrar" id="ReUsu">
-                <?php require "vistas/usuarios.php"; ?>
-            </div>
-            <div class="row mostrar" id="agregarLibro">
-                <?php require "vistas/agregarLibro.php"; ?>
-            </div>
-            <div class="row mostrar" id="VerUsu">
-                <div class="card">
-                   <?php require "vistas/verUsu.php"; ?>
-                </div>
-            </div>
-            <div class="row mostrar" id="TablaLibros">
-                <?php require "vistas/editarLibro.php";?>
-            </div>
+            
             <div class="row mostrar" id="consul">
                 <?php require "vistas/consultas.php";?>
-            </div>
-            <div class="row mostrar" id="estadis">
-               <?php require "vistas/estadisticas.php";?>
-            </div>
-            <div class="row mostrar" id="impri">
-               <?php require "vistas/imprimir.php";?>
             </div>
             <div class="row mostrar" id='nuevoPresta'>
                 <?php require "vistas/nuevoPrestamo.php";?>
@@ -75,12 +56,8 @@
     <script src="js/editarLibro.js"></script>
     <script src="js/consultas.js"></script>
     <script src="js/estadisticas.js"></script>
-<<<<<<< HEAD
-    <script src="js/imprimir.js"></script>
-=======
     <script src="js/nuevoPrestamo.js"></script>
     <script src="js/editarPrestamo.js"></script>
->>>>>>> f36304409ddd6cfb5c613f0cb63cc31af69530bd
 </body>
 
 </html>

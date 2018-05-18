@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="UsuNoC">No. de Control:</label>
-                        <input type="number" class="inpUsu form-control" id="UsuNoc" name="numControl" required>
+                        <input type="number" class="inpUsu form-control" id="UsuNoc" name="numControl" min="9">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="UsuCa">Carrera:</label>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="UsuSe">Semestre:</label>
-                        <input type="text" class="inpUsu form-control" id="UsuSe" name="semestre" required>
+                        <input type="text" class="inpUsu form-control" id="UsuSe" name="semestre">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="UsuEm">Email:</label>

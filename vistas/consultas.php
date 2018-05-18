@@ -33,6 +33,7 @@
                                     <th>Autor</th>
                                     <th>Tema</th>
                                     <th>Ubicación</th>
+                                    <th>Carrera</th>
                                     <th>Estado</th>
                                 </tr>
                             </thead>

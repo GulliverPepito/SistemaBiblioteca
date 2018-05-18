@@ -192,6 +192,7 @@ $(document).ready(function() {
                 if (response == 1) {
                     $(ths).parents('tr').find('#isnbModificar').val('');
                     $(ths).parents('tr').find('#codigoBarrasModificar').val('');
+                    mostrarDatosDetalle(ths, id);
                 } else {
                     alert('Error no se pudo agregar');
                 }
