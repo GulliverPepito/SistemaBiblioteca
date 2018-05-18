@@ -72,6 +72,7 @@
     <script src="js/editarLibro.js"></script>
     <script src="js/consultas.js"></script>
     <script src="js/estadisticas.js"></script>
+    <script src="js/imprimir.js"></script>
 </body>
 
 </html>
