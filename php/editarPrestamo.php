@@ -1,12 +1,17 @@
 <?php
     include 'conexion.php';
     session_start();
-    $id=$_SESSION["user"]["ID_Usuario"];
+    $idUsuario=$_SESSION["user"]["Usuario"];
+    $tipoUsuario=$_SESSION["user"]["Tipo"];
     date_default_timezone_set('UTC');
     if(isset($_POST) && $_POST['tag']=='mostrarPrestamos'){
-        $sql = "SELECT * FROM prestamos INNER JOIN prestatario WHERE ID_Prestatario='$id' AND Prestatario_FK='$id'";
+        if($tipoUsuario==1){
+            $sql = "SELECT * FROM prestamos INNER JOIN prestatario WHERE ID_Prestatario=Prestatario_FK";
+        }else{
+            $sql = "SELECT * FROM prestamos INNER JOIN prestatario WHERE ID_Prestatario=Prestatario_FK AND No_control='$idUsuario'";
+        }
         $result = $con->query($sql);
-        if($result->num_rows > 0){
+        if($result->num_rows > 0){ 
             while($row = $result->fetch_assoc()){
                 $alumno = $row['Nombres']." ".$row['ApellidoP']." ".$row['ApellidoM'];
                 $status = "";
@@ -20,7 +25,7 @@
                 }
                 if($row['status']==1){
                     $status = "Activo";
-                    if($row['Tipo_FK'] == 4){
+                    if($tipoUsuario == 1){
                     $button = "<button type='button' class='btn btn-primary editarPrestamo' id='btnEditarPrestamo'><i class='fa fa-cog' aria-hidden='true'></i> Editar</button>";
                     } else {
                         $button = "<button type='button' class='btn btn-primary editarPrestamo' id='btnEditarPrestamo'><i class='fa fa-cog' aria-hidden='true'></i> Ver</button>";
@@ -67,6 +72,7 @@
                 $respuesta->alumno = $alumno;
                 $respuesta->carrera = $row['Carrera'];
                 $respuesta->tipo = $row['Tipo'];
+                $respuesta->tipoUsuario = $tipoUsuario;
                 echo json_encode($respuesta);
             }
         }

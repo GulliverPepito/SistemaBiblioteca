@@ -27,8 +27,8 @@ $(document).ready(function() {
                 $('#tipoPrestamo').val(response.tipo);
                 $('#buscarLibrosPrestamo').attr('disabled', false);
                 $('#btnGuardarPrestamo').hide();
-                console.log(response.tipo);
-                if(response.tipo=='Admin'){
+                console.log(response.tipoUsuario);
+                if (response.tipoUsuario == 1) {
                     $('#btnRegresarPrestamo').show();
                     $('#btnActualizarPrestamo').show();
                 }

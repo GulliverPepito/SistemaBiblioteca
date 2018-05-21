@@ -75,12 +75,8 @@
     <script src="js/editarLibro.js"></script>
     <script src="js/consultas.js"></script>
     <script src="js/estadisticas.js"></script>
-<<<<<<< HEAD
-    <script src="js/imprimir.js"></script>
-=======
     <script src="js/nuevoPrestamo.js"></script>
     <script src="js/editarPrestamo.js"></script>
->>>>>>> f36304409ddd6cfb5c613f0cb63cc31af69530bd
 </body>
 
 </html>
