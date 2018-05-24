@@ -17,7 +17,6 @@ $(document).ready(function() {
             data: { tag: 'mostrarDetalle', id: id },
             success: function(response) {
                 $(obj).parents('tr').find('#detalleLibro').html(response);
-                alert('Guardado Correctamente!!');
                 $('#carga').hide(0);
             }
         });
@@ -91,6 +90,7 @@ $(document).ready(function() {
         $('#codigoBarrasEditarDetalle').val($(this).parent().parent().parent().children('td:eq(2)').text());
     });
     $(document).on('click', '.eliminarDetalle', function() {
+        ths = $(this);
         var confir = confirm('Esta seguro de Eliminar los datos? Una vez Eliminado no se podran recuperar los datos');
         if (confir == true) {
             var datos = {
