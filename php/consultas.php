@@ -11,7 +11,7 @@
 		}else{
 			$mas="";
 		}
-		$sql = "SELECT ID_Detalle, ISBN, Codigo_Barras, Titulo, Autor, Tema_Especifico, Fila, Area, Carrera, Status, (SELECT Fecha_Fin FROM prestamos INNER JOIN prestamos_detalle ON Prestamo_FK=ID_Prestamo WHERE Libro_FK=ID_Detalle) AS Fecha_Fin, NOW() AS Fecha FROM libros_detalle INNER JOIN libros ON Libros_FK=ID_Libro INNER JOIN ubicacion ON Ubicacion_FK=ID_Ubicacion INNER JOIN areas ON Area_FK=ID_Areas INNER JOIN carrera ON Carrera_FK=ID_Carrera WHERE CONCAT(ISBN,Codigo_Barras,Titulo,Autor,Tema_Especifico,Fila,Area,Carrera) LIKE '%$_POST[bus]%' $mas";
+		$sql = "SELECT ID_Detalle, ISBN, Codigo_Barras, Titulo, Autor, Tema_Especifico, Fila, Area, Carrera, Status, (SELECT MAX(Fecha_Fin) FROM prestamos INNER JOIN prestamos_detalle ON Prestamo_FK=ID_Prestamo WHERE Libro_FK=ID_Detalle) AS Fecha_Fin, NOW() AS Fecha FROM libros_detalle INNER JOIN libros ON Libros_FK=ID_Libro INNER JOIN ubicacion ON Ubicacion_FK=ID_Ubicacion INNER JOIN areas ON Area_FK=ID_Areas INNER JOIN carrera ON Carrera_FK=ID_Carrera WHERE CONCAT(ISBN,Codigo_Barras,Titulo,Autor,Tema_Especifico,Fila,Area,Carrera) LIKE '%$_POST[bus]%' $mas";
 		if($res=$con->query($sql)){
 		    if ($res->num_rows > 0) {
 				while($row = $res->fetch_assoc()) {
