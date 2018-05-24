@@ -1,4 +1,25 @@
-﻿
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-05-2018 a las 23:05:28
+-- Versión del servidor: 10.1.10-MariaDB
+-- Versión de PHP: 5.6.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `biblioteca`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -11,13 +32,6 @@ CREATE TABLE `adeudos` (
   `Cantidad` double DEFAULT NULL,
   `Pagado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `adeudos`
---
-
-INSERT INTO `adeudos` (`ID_Adeudos`, `Prestamos_FK`, `Cantidad`, `Pagado`) VALUES
-(1, 19, 5, 1);
 
 --
 -- Disparadores `adeudos`
@@ -131,14 +145,13 @@ CREATE TABLE `libros_detalle` (
 INSERT INTO `libros_detalle` (`ID_Detalle`, `ISBN`, `Codigo_Barras`, `Libros_FK`, `Status`) VALUES
 (8, 'asdasd445', 'sadasdas', 2, 1),
 (9, '232324d', '343434', 2, 1),
-(13, '3434', '43434', 2, 0),
+(13, '3434', '43434', 2, 1),
 (15, '3434jjjj', '43434jjj', 2, 0),
 (16, 'dsdasdww', 'sdasdad', 2, 0),
-(17, 'dsdasd3333', 'sdasda3333', 2, 0),
+(17, 'dsdasd3333', 'sdasda3333', 2, 1),
 (18, '3434231121', '1231232323', 2, 0),
 (19, 'frtewrewr66', 'rwrwrwrwr', 2, 0),
-(20, 'ggggg67', 'gggggasdasda', 2, 0),
-(21, 'fffff335', 'fffff', 2, 0);
+(20, 'ggggg67', 'gggggasdasda', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -159,11 +172,8 @@ CREATE TABLE `prestamos` (
 --
 
 INSERT INTO `prestamos` (`ID_Prestamo`, `Fecha_Inicio`, `Fecha_Fin`, `Prestatario_FK`, `status`) VALUES
-(19, '2018-04-18', '2018-04-23', 1, 2),
-(20, '2018-04-24', '2018-05-19', 1, 0),
-(21, '2018-04-24', '2018-05-19', 4, 1),
-(22, '2018-04-24', '2018-05-19', 4, 1),
-(23, '2018-05-03', '2018-05-28', 7, 1);
+(24, '2018-05-21', '2018-06-15', 4, 1),
+(25, '2018-05-21', '2018-06-15', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -173,8 +183,8 @@ INSERT INTO `prestamos` (`ID_Prestamo`, `Fecha_Inicio`, `Fecha_Fin`, `Prestatari
 
 CREATE TABLE `prestamos_detalle` (
   `ID_Prestamo_Detalle` int(11) NOT NULL,
-  `Libro_FK` int(11) NOT NULL,
-  `Prestamo_FK` int(11) NOT NULL
+  `Libro_FK` int(11) NOT NULL DEFAULT '0',
+  `Prestamo_FK` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -182,10 +192,8 @@ CREATE TABLE `prestamos_detalle` (
 --
 
 INSERT INTO `prestamos_detalle` (`ID_Prestamo_Detalle`, `Libro_FK`, `Prestamo_FK`) VALUES
-(1, 9, 20),
-(3, 9, 19),
-(4, 9, 21),
-(5, 8, 23);
+(6, 17, 24),
+(7, 13, 25);
 
 --
 -- Disparadores `prestamos_detalle`
@@ -238,7 +246,8 @@ INSERT INTO `prestatario` (`ID_Prestatario`, `Nombres`, `ApellidoP`, `ApellidoM`
 (3, 'Marcelo ', 'RamÃ­rez ', 'Aceves', 1, 'na', 3, '0', 'marcelo.ramirez@tecarandas.edu.mx', '3333', 'aldama 126', 'centro', 'arandas', 'jalisco', '47180', '2018-04-18 09:38:10'),
 (4, 'Jonathan', 'Gonzalez', 'Franco', 1, '8', 2, '141600009', 'jonipeque@hotmail.com', '3787078774', 'rayon#218', 'centro', 'capilla de guadalupe jal', 'Jalisco', '47700', '2018-04-24 21:40:56'),
 (5, 'Rodolfo', 'Lara', 'Espinoza', 1, '8', 2, '141600004', 'rodspektre@gmail.com', '3481231828', 'Luis Y guillermo', 'rosario', 'arandas', 'jalisco', '47180', '2018-04-30 18:25:54'),
-(7, 'Joaqui', 'G', 'g', 2, '8', 2, '123456789', 'example@gmail.com', '7845945123', 'ugfhir', 'rosario', 'arandas', 'jalisco', '47180', '2018-04-30 19:06:40');
+(7, 'Joaqui', 'G', 'g', 2, '8', 2, '123456789', 'example@gmail.com', '7845945123', 'ugfhir', 'rosario', 'arandas', 'jalisco', '47180', '2018-04-30 19:06:40'),
+(8, 'Jonathan', 'Gonzalez', 'Franco', 1, '8', 2, '141600009', 'jonipeque@hotmail.com', '3787078774', 'PORFIRIO DIAZ #30', 'centro', 'capilla de guadalupe jal', 'Jalisco', '47700', '2018-05-21 13:15:00');
 
 --
 -- Disparadores `prestatario`
@@ -334,8 +343,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_Usuario`, `Usuario`, `Contrasenia`, `Tipo`) VALUES
-(1, '141600003', '123', '1'),
-(7, '123456789', '123456789', '2');
+(1, 'Juan', '123', '1'),
+(7, '123456789', '123456789', '2'),
+(8, '141600009', '141600009', '2');
 
 --
 -- Índices para tablas volcadas
@@ -434,74 +444,62 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `adeudos`
 --
 ALTER TABLE `adeudos`
-  MODIFY `ID_Adeudos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `ID_Adeudos` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `areas`
 --
 ALTER TABLE `areas`
   MODIFY `ID_Areas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
   MODIFY `ID_Carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
   MODIFY `ID_Libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT de la tabla `libros_detalle`
 --
 ALTER TABLE `libros_detalle`
-  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
+  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `ID_Prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
+  MODIFY `ID_Prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT de la tabla `prestamos_detalle`
 --
 ALTER TABLE `prestamos_detalle`
-  MODIFY `ID_Prestamo_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `ID_Prestamo_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `prestatario`
 --
 ALTER TABLE `prestatario`
-  MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `tema_general`
 --
 ALTER TABLE `tema_general`
   MODIFY `ID_Tema_Gral` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT de la tabla `tipo_prestatario`
 --
 ALTER TABLE `tipo_prestatario`
   MODIFY `ID_Tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT de la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
   MODIFY `ID_Ubicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Restricciones para tablas volcadas
 --
@@ -551,7 +549,6 @@ ALTER TABLE `prestatario`
 --
 ALTER TABLE `ubicacion`
   ADD CONSTRAINT `ubicacion_ibfk_1` FOREIGN KEY (`Area_FK`) REFERENCES `areas` (`ID_Areas`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

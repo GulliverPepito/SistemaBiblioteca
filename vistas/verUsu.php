@@ -75,7 +75,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="UsuNoC">No. de Control:</label>
-                    <input type="number" class="MinpUsu form-control" id="MUsuNoc" name="numControl" required>
+                    <input type="text" class="MinpUsu form-control" id="MUsuNoc" name="numControl" pattern="\d*" minlength="9" maxlength="9">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="UsuCa">Carrera:</label>

@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="UsuNoC">No. de Control:</label>
-                        <input type="number" class="inpUsu form-control" id="UsuNoc" name="numControl" min="9">
+                        <input type="text" class="inpUsu form-control" id="UsuNoc" name="numControl" pattern="\d*" minlength="9" maxlength="9">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="UsuCa">Carrera:</label>
