@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2018 a las 23:05:28
+-- Tiempo de generación: 25-05-2018 a las 17:16:18
 -- Versión del servidor: 10.1.10-MariaDB
 -- Versión de PHP: 5.6.19
 
@@ -82,13 +82,13 @@ CREATE TABLE `carrera` (
 --
 
 INSERT INTO `carrera` (`ID_Carrera`, `Carrera`, `Codigo`) VALUES
-(1, 'Ing. En Sistemas Computacionales', NULL),
-(2, 'Ing. En Gestion Empresarial', NULL),
-(3, 'Ing. Industrial', NULL),
-(4, 'Ing. En Industrias Alimentarias', NULL),
-(5, 'Ing. Electromecanica', NULL),
-(6, 'Ing. Ambiental', NULL),
-(7, 'NA', NULL);
+(1, 'Ing. En Sistemas Computacionales', 'ISIC'),
+(2, 'Ing. En Gestion Empresarial', 'IGEM'),
+(3, 'Ing. Industrial', 'IIND'),
+(4, 'Ing. En Industrias Alimentarias', 'IIAL'),
+(5, 'Ing. Electromecanica', 'IEME'),
+(6, 'Ing. Ambiental', 'IAMB'),
+(7, 'NA', 'NA');
 
 -- --------------------------------------------------------
 
@@ -148,10 +148,8 @@ INSERT INTO `libros_detalle` (`ID_Detalle`, `ISBN`, `Codigo_Barras`, `Libros_FK`
 (13, '3434', '43434', 2, 1),
 (15, '3434jjjj', '43434jjj', 2, 0),
 (16, 'dsdasdww', 'sdasdad', 2, 0),
-(17, 'dsdasd3333', 'sdasda3333', 2, 1),
-(18, '3434231121', '1231232323', 2, 0),
-(19, 'frtewrewr66', 'rwrwrwrwr', 2, 0),
-(20, 'ggggg67', 'gggggasdasda', 2, 0);
+(17, 'dsdasd3333', 'sdasda3333', 2, 0),
+(18, '3434231121', '1231232323', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -172,7 +170,7 @@ CREATE TABLE `prestamos` (
 --
 
 INSERT INTO `prestamos` (`ID_Prestamo`, `Fecha_Inicio`, `Fecha_Fin`, `Prestatario_FK`, `status`) VALUES
-(24, '2018-05-21', '2018-06-15', 4, 1),
+(24, '2018-05-21', '2018-06-15', 4, 0),
 (25, '2018-05-21', '2018-06-15', 1, 1);
 
 -- --------------------------------------------------------
@@ -183,8 +181,8 @@ INSERT INTO `prestamos` (`ID_Prestamo`, `Fecha_Inicio`, `Fecha_Fin`, `Prestatari
 
 CREATE TABLE `prestamos_detalle` (
   `ID_Prestamo_Detalle` int(11) NOT NULL,
-  `Libro_FK` int(11) NOT NULL DEFAULT '0',
-  `Prestamo_FK` int(11) NOT NULL DEFAULT '0'
+  `Libro_FK` int(11) NOT NULL,
+  `Prestamo_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -464,7 +462,7 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `libros_detalle`
 --
 ALTER TABLE `libros_detalle`
-  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
