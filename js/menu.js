@@ -91,4 +91,8 @@ $(document).ready(function() {
         $(".mostrar").hide();
         $("#editarPrestamo").show();
     });
+    $(document).on('click', '#modulos', function() {
+        $('.mostrar').hide();
+        $('#addModulos').show();
+    });
 });

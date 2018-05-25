@@ -33,7 +33,7 @@
             </a>
             <a class="item usuarios sub-item" id="MoUsu"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i> <p>Modificar Usuario</p></a>
             <a class="item" id="modulos">
-                <p><i class="fa fa-plus fa-2x" aria-hidden="true"></i>Modulos</p>
+                <p><i class="fa fa-plus fa-2x" aria-hidden="true"></i>Agregar</p>
             </a>
         </div>
     </header>

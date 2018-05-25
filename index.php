@@ -63,6 +63,9 @@
                 <?php require "vistas/editarPrestamo.php";?>
             </div>
         </div>
+        <div class="row mostrar" id='addModulos'>
+                <?php require "vistas/agregarModulos.php"; ?>
+        </div>
     </section>
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
