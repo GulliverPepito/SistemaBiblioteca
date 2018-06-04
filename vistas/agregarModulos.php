@@ -6,14 +6,14 @@
             <div class="row">
                 <div class="form-group col-md-10">
                     <label for="area">Area</label>
-                    <input type="text" class='form-control' id='area'>
+                    <input type="text" class='form-control' id='area' required>
                 </div>
                 <div class="col-md-2">
                     <button type='button' class='btn btn-danger' id="btnGuardarAreas" style="margin-top: 25px;"><i class="fa fa-save"></i> Guardar</button>
                 </div>
             </div>
         </form>
-        <div style="width: 100%; height:300px; display:block;">
+        <div class="table-responsive" style="width: 100%; height:300px; display:block;">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -32,18 +32,18 @@
             <div class="row">
                 <div class="form-group col-md-5">
                     <label for="carrera">Carrera</label>
-                    <input type="text" class="form-control" id="carrera">
+                    <input type="text" class="form-control" id="Carrera" required>
                 </div>
                 <div class="form-group col-md-5">
                     <label for="codigo">Codigo</label>
-                    <input type="text" class="form-control" id="codigo">
+                    <input type="text" class="form-control" id="codigo" required>
                 </div>
                 <div class="col-md-2">
                     <button type="button" class="btn btn-danger" id="agregarCarrera" style="margin-top: 25px;"><i class="fa fa-save"></i> Guardar</button>
                 </div>
             </div>
         </form>
-        <div style="width: 100%; height:300px; display:block;">
+        <div class="table-responsive" style="width: 100%; height:300px; display:block;">
             <table class="table table-striped" >
                <thead>
                <tr>
@@ -63,14 +63,14 @@
             <div class="row">
                 <div class="form-group col-md-10">
                     <label for="tema">Tema</label>
-                    <input type="text" class="form-control" id="tema">
+                    <input type="text" class="form-control" id="tema" required>
                 </div>
                 <div class="col-md-2">
                     <button type="button" class="btn btn-danger" id="agregarTema" style="margin-top: 25px;"><i class="fa fa-save"></i> Guardar</button>
                 </div>
             </div>
         </form>
-        <div style="width: 100%; height:300px; display:block;">
+        <div class="table-responsive" style="width: 100%; height:300px; display:block;">
         <table class="table table-striped" >
                <thead>
                <tr>
@@ -89,26 +89,26 @@
                 <div class="row">
                     <div class="form-group col-md-5">
                     <label for="area">Area</label>
-                    <select name="" id="area" class="form-control">
-                        <option value="seleccion">Seleccione...</option>
+                    <select name="" id="area1" class="form-control" required>
+                        
                     </select>
                 </div>
                 <div class="form-group col-md-5">
-                    <label for="ubicacion">Ubicacion</label>
-                    <input type="text" class="form-control" id="ubicacion">
+                    <label for="ubicacion">Fila</label>
+                    <input type="number" class="form-control" id="Ubicacion" required>
                 </div>
                 <div class="col-md-2">
                     <button type="button" class="btn btn-danger" id="agregarUbicacion" style="margin-top: 25px;"><i class="fa fa-save"></i> Guardar</button>
             </div>
                 </div>
         </form>
-        <div style="width: 100%; height:300px; display:block;">
+        <div class="table-responsive" style="width: 100%; height:300px; display:block;">
         <table class="table table-striped" >
                <thead>
                <tr>
                     <th>#</th>
+                    <th>Fila</th>
                     <th>Area</th>
-                    <th>Ubicacion</th>
                 </tr>
                </thead>
                <tbody id="tablaUbicacion">

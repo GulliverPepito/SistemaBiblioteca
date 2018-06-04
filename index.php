@@ -81,6 +81,7 @@
     <script src="js/nuevoPrestamo.js"></script>
     <script src="js/editarPrestamo.js"></script>
     <script src="js/imprimir.js"></script>
+    <script src="js/agregar.js"></script>
 </body>
 
 </html>
