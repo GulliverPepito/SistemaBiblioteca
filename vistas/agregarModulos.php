@@ -118,3 +118,117 @@
         </div>
     </div>
 </div>
+<div class="modal" tabindex="-1" role="dialog" id="modalArea">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Area</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width:10%;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form action="">
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="area">Area</label>
+                    <input type="text" class='form-control editar' id='areaEditar' required>
+                </div>
+            </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width:20%;">Cerrar</button>
+        <button type="button" class="btn btn-danger guardar" style="width:20%;" disabled id="btnActualizarArea">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalCarrera">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Carrera</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width:10%;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form action="">
+            <div class="row">
+            <div class="form-group col-md-6">
+                    <label for="carrera">Carrera</label>
+                    <input type="text" class="form-control editar" id="CarreraEditar" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="codigo">Codigo</label>
+                    <input type="text" class="form-control editar" id="codigoEditar" required>
+                </div>
+            </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width:20%;">Cerrar</button>
+        <button type="button" class="btn btn-danger guardar" style="width:20%;" disabled id="btnActualizarCarrera">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalTema">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Temas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width:10%;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form action="">
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="tema">Tema</label>
+                    <input type="text" class="form-control editar" id="temaEditar" required>
+                </div>
+            </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width:20%;">Cerrar</button>
+        <button type="button" class="btn btn-danger guardar" style="width:20%;" disabled id="btnActualizarTema">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalUbicacion">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Ubicacion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width:10%;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form action="">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="area">Area</label>
+                    <select name="" id="area1Editar" class="form-control editar" required>
+                        
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ubicacion">Fila</label>
+                    <input type="number" class="form-control editar" id="UbicacionEditar" required>
+                </div>
+            </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="width:20%;">Cerrar</button>
+        <button type="button" class="btn btn-danger guardar" style="width:20%;" disabled id="btnActualizarUbicacion">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
