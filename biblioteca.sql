@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2018 a las 17:16:18
--- Versión del servidor: 10.1.10-MariaDB
--- Versión de PHP: 5.6.19
+-- Tiempo de generación: 05-06-2018 a las 00:14:18
+-- Versión del servidor: 10.1.25-MariaDB
+-- Versión de PHP: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -84,11 +86,11 @@ CREATE TABLE `carrera` (
 INSERT INTO `carrera` (`ID_Carrera`, `Carrera`, `Codigo`) VALUES
 (1, 'Ing. En Sistemas Computacionales', 'ISIC'),
 (2, 'Ing. En Gestion Empresarial', 'IGEM'),
-(3, 'Ing. Industrial', 'IIND'),
-(4, 'Ing. En Industrias Alimentarias', 'IIAL'),
-(5, 'Ing. Electromecanica', 'IEME'),
-(6, 'Ing. Ambiental', 'IAMB'),
-(7, 'NA', 'NA');
+(3, 'Ing. Industrial', NULL),
+(4, 'Ing. En Industrias Alimentarias', NULL),
+(5, 'Ing. Electromecanica', NULL),
+(6, 'Ing. Ambiental', NULL),
+(7, 'NA', NULL);
 
 -- --------------------------------------------------------
 
@@ -120,9 +122,7 @@ CREATE TABLE `libros` (
 
 INSERT INTO `libros` (`ID_Libro`, `Titulo`, `Autor`, `Titulo_Original`, `Anio_Edicion`, `Lugar_Edicion`, `Editorial`, `Paginas`, `Ubicacion_FK`, `Volumen`, `Num_Serie`, `Carrera_FK`, `URL`, `Tema_General_FK`, `Tema_Especifico`) VALUES
 (1, 'Caballo de Troya', 'J. J. BenÃ­tez', 'Caballo de Troya', 1987, 'EspaÃ±a', 'Panama', 511, 1, 0, 'N/A', 7, 'http://www.alv.com', 5, 'Ciencia Ficcion'),
-(2, 'Bases de Datos', 'MarquÃ©s, Mercedes', 'Bases de Datos', 2011, 'EspaÃ±a', 'Sapiente', 247, 3, 0, '0', 1, '', 3, 'Bases de Datos '),
-(3, 'El Codigo de Da Vinci', 'Dan Brown', 'Da Vinci Code', 2014, 'Capilla', 'Planeta', 300, 1, 1, '232324234', 7, 'http://web.com', 5, 'Literatura'),
-(4, 'Codigo de Da Vinci', 'Dan Brown', 'Da Vinci Code', 2013, 'Capilla', 'Planeta', 300, 2, 1, '23243243', 7, 'http://web.com', 5, 'Literatura');
+(2, 'Bases de Datos', 'MarquÃ©s, Mercedes', 'Bases de Datos', 2011, 'EspaÃ±a', 'Sapiente', 247, 3, 0, '0', 1, '', 3, 'Bases de Datos ');
 
 -- --------------------------------------------------------
 
@@ -143,13 +143,8 @@ CREATE TABLE `libros_detalle` (
 --
 
 INSERT INTO `libros_detalle` (`ID_Detalle`, `ISBN`, `Codigo_Barras`, `Libros_FK`, `Status`) VALUES
-(8, 'asdasd445', 'sadasdas', 2, 1),
-(9, '232324d', '343434', 2, 1),
 (13, '3434', '43434', 2, 1),
-(15, '3434jjjj', '43434jjj', 2, 0),
-(16, 'dsdasdww', 'sdasdad', 2, 0),
-(17, 'dsdasd3333', 'sdasda3333', 2, 0),
-(18, '3434231121', '1231232323', 2, 0);
+(19, 'abc123', '1234', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -170,8 +165,8 @@ CREATE TABLE `prestamos` (
 --
 
 INSERT INTO `prestamos` (`ID_Prestamo`, `Fecha_Inicio`, `Fecha_Fin`, `Prestatario_FK`, `status`) VALUES
-(24, '2018-05-21', '2018-06-15', 4, 0),
-(25, '2018-05-21', '2018-06-15', 1, 1);
+(26, '2018-06-04', '2018-06-29', 1, 0),
+(27, '2018-06-04', '2018-06-29', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -181,8 +176,8 @@ INSERT INTO `prestamos` (`ID_Prestamo`, `Fecha_Inicio`, `Fecha_Fin`, `Prestatari
 
 CREATE TABLE `prestamos_detalle` (
   `ID_Prestamo_Detalle` int(11) NOT NULL,
-  `Libro_FK` int(11) NOT NULL,
-  `Prestamo_FK` int(11) NOT NULL
+  `Libro_FK` int(11) NOT NULL DEFAULT '0',
+  `Prestamo_FK` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -190,8 +185,8 @@ CREATE TABLE `prestamos_detalle` (
 --
 
 INSERT INTO `prestamos_detalle` (`ID_Prestamo_Detalle`, `Libro_FK`, `Prestamo_FK`) VALUES
-(6, 17, 24),
-(7, 13, 25);
+(8, 19, 26),
+(9, 13, 27);
 
 --
 -- Disparadores `prestamos_detalle`
@@ -245,7 +240,8 @@ INSERT INTO `prestatario` (`ID_Prestatario`, `Nombres`, `ApellidoP`, `ApellidoM`
 (4, 'Jonathan', 'Gonzalez', 'Franco', 1, '8', 2, '141600009', 'jonipeque@hotmail.com', '3787078774', 'rayon#218', 'centro', 'capilla de guadalupe jal', 'Jalisco', '47700', '2018-04-24 21:40:56'),
 (5, 'Rodolfo', 'Lara', 'Espinoza', 1, '8', 2, '141600004', 'rodspektre@gmail.com', '3481231828', 'Luis Y guillermo', 'rosario', 'arandas', 'jalisco', '47180', '2018-04-30 18:25:54'),
 (7, 'Joaqui', 'G', 'g', 2, '8', 2, '123456789', 'example@gmail.com', '7845945123', 'ugfhir', 'rosario', 'arandas', 'jalisco', '47180', '2018-04-30 19:06:40'),
-(8, 'Jonathan', 'Gonzalez', 'Franco', 1, '8', 2, '141600009', 'jonipeque@hotmail.com', '3787078774', 'PORFIRIO DIAZ #30', 'centro', 'capilla de guadalupe jal', 'Jalisco', '47700', '2018-05-21 13:15:00');
+(8, 'Jonathan', 'Gonzalez', 'Franco', 1, '8', 2, '141600009', 'jonipeque@hotmail.com', '3787078774', 'PORFIRIO DIAZ #30', 'centro', 'capilla de guadalupe jal', 'Jalisco', '47700', '2018-05-21 13:15:00'),
+(9, 'dfr', 'edff', 'sdf', 1, '87', 1, '567846576879879', 'ernes2064@gmail.com', '234', 'effr', 'dvfbg', 'zxcvb', 'xzcvb', '234', '2018-05-24 10:58:03');
 
 --
 -- Disparadores `prestatario`
@@ -278,7 +274,9 @@ INSERT INTO `tema_general` (`ID_Tema_Gral`, `Tema`) VALUES
 (3, 'Programacion'),
 (4, 'Matematicas'),
 (5, 'Literatura'),
-(6, 'Ingles');
+(6, 'Ingles'),
+(7, 'alv'),
+(8, 'alv2');
 
 -- --------------------------------------------------------
 
@@ -321,7 +319,7 @@ INSERT INTO `ubicacion` (`ID_Ubicacion`, `Fila`, `Area_FK`) VALUES
 (1, '1', 1),
 (2, '2', 3),
 (3, '3', 4),
-(4, '4', 5);
+(4, '1', 5);
 
 -- --------------------------------------------------------
 
@@ -343,7 +341,8 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`ID_Usuario`, `Usuario`, `Contrasenia`, `Tipo`) VALUES
 (1, 'Juan', '123', '1'),
 (7, '123456789', '123456789', '2'),
-(8, '141600009', '141600009', '2');
+(8, '141600009', '141600009', '2'),
+(9, '23451', '23451', '1');
 
 --
 -- Índices para tablas volcadas
@@ -452,7 +451,7 @@ ALTER TABLE `areas`
 -- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
-  MODIFY `ID_Carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
@@ -462,27 +461,27 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `libros_detalle`
 --
 ALTER TABLE `libros_detalle`
-  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `ID_Prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID_Prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT de la tabla `prestamos_detalle`
 --
 ALTER TABLE `prestamos_detalle`
-  MODIFY `ID_Prestamo_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Prestamo_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `prestatario`
 --
 ALTER TABLE `prestatario`
-  MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID_Prestatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `tema_general`
 --
 ALTER TABLE `tema_general`
-  MODIFY `ID_Tema_Gral` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_Tema_Gral` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `tipo_prestatario`
 --
@@ -497,7 +496,7 @@ ALTER TABLE `ubicacion`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Restricciones para tablas volcadas
 --
@@ -547,6 +546,7 @@ ALTER TABLE `prestatario`
 --
 ALTER TABLE `ubicacion`
   ADD CONSTRAINT `ubicacion_ibfk_1` FOREIGN KEY (`Area_FK`) REFERENCES `areas` (`ID_Areas`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

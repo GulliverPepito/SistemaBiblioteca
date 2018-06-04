@@ -168,7 +168,6 @@ $(document).ready(function() {
     $(document).on('click', '.ModiCarre', function() {
         id = $(this).parents('tr').find('td').eq(0).html();
         var carrera = $(this).parents('tr').find('td').eq(1).html();
-        alert(carrera);
         var codigo = $(this).parents('tr').find('td').eq(2).html();
         $('#CarreraEditar').val(carrera);
         $('#codigoEditar').val(codigo);

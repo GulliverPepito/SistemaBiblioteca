@@ -44,7 +44,6 @@ $(document).on("click", "#btnImprimirEtiquetas", function(){
     })
     .done(function(msg){
     window.open('php/etiquetas.php?id=' + id + "&c=" + codigo + "&e=" + ejemplar,'_blank');
-	window.location.reload(false);
     })
     .fail(function(){
         alert(msg);
